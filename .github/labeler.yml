@@ -1,0 +1,48 @@
+version: 1
+labels:
+
+  # Branch names
+- label: "Feature"
+  branch: "^feature/.*"
+  branch: "^feature/.*"
+
+- label: "Hotfix"
+  branch: "^Hotfix/.*"
+  branch: "^hotfix/.*"
+
+- label: "Art"
+  branch: "^Art/.*"
+  branch: "^art/.*"
+
+- label: "Artfix"
+  branch: "^Artfix/.*"
+  branch: "^artfix/.*"
+
+  #Branch states
+
+- label: "Release"
+  branch: "master"
+
+- label: "Ready For Merge"
+  approved_reviewer: true
+  author-can-merge: True
+  mergeable: True
+  draft: false
+
+- label: "Draft"
+  draft: true
+
+- label: "Ready For Review"
+  draft: false
+  requested_reviewer: true
+
+
+  # Files changed
+
+- label: "CI/CD"
+  files:
+  - .github/*
+
+- label: "Documentation"
+  files:
+  - '**/*.md'

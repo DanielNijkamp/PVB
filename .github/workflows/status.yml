@@ -1,0 +1,34 @@
+name: Pull Request Status Checker
+
+
+on:
+  pull_request_review:
+    types: [submitted]
+  workflow_dispatch:
+    inputs:
+      pull_request_number:
+        description: 'Pull request number'
+        required: true
+
+jobs:
+  label_pull_request:
+    if: github.event.review.state == 'APPROVED' || github.event.review.state == 'CHANGES_REQUESTED'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Add 'Approved' label
+        if: github.event.review.state == 'APPROVED'
+        run: |
+          gh pr edit ${{ github.event.pull_request.number }} --add-label "Approved"
+          gh pr comment ${{ github.event.pull_request.number }} --body "<img src="https://media1.tenor.com/m/HEMQmYHww6MAAAAd/borat-borat-very-nice.gif" alt="drawing" width="5000000"/>"
+        env:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+
+      - name: Add 'Changes Requested' label
+        if: github.event.review.state == 'CHANGES_REQUESTED'
+        run: |
+          gh pr edit ${{ github.event.pull_request.number }} --add-label "Changes Requested"
+        env:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
