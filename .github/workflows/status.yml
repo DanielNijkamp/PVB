@@ -21,7 +21,7 @@ jobs:
       - name: Add 'Approved' label
         if: github.event.review.state == 'APPROVED'
         run: |
-          gh pr edit ${{ github.event.pull_request.number }} --add-label "Approved"
+          gh pr edit ${{ github.event.pull_request.number }} --add-label "Approved" --remove-label "Changes Requested"
           gh pr comment ${{ github.event.pull_request.number }} --body "<img src="https://media1.tenor.com/m/HEMQmYHww6MAAAAd/borat-borat-very-nice.gif" alt="drawing" width="5000000"/>"
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
@@ -29,6 +29,6 @@ jobs:
       - name: Add 'Changes Requested' label
         if: github.event.review.state == 'CHANGES_REQUESTED'
         run: |
-          gh pr edit ${{ github.event.pull_request.number }} --add-label "Changes Requested"
+          gh pr edit ${{ github.event.pull_request.number }} --add-label "Changes Requested" --remove-label "Approved"
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"

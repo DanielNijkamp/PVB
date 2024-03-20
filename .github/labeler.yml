@@ -43,6 +43,10 @@ labels:
   files:
   - .github/*
 
+- label: "Scene"
+  files:
+  - '**/*.unity'
+
 - label: "Documentation"
   files:
   - '**/*.md'
