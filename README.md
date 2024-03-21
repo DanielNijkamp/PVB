@@ -24,6 +24,7 @@ Our game idea is to have a physics-based puzzle game where you need to explore d
 | -- |
 |  [![Build Status](https://github.com/DanielNijkamp/FlippinWorlds/actions/workflows/build.yml/badge.svg?branch=master)](https://github.com/DanielNijkamp/FlippinWorlds/actions)   |
 
+<sup>_(temporaly using different badge)_</sup>
 
 ## Team members:
 
