@@ -52,22 +52,18 @@ Our game idea is to have a physics-based puzzle game where you need to explore d
 
 | Type   | Description   |
 |-------------|-------------|
+| [`Features`](https://github.com/DanielNijkamp/PVB/wiki/Features) | View per-feature documentation|
 | [`Agile planning`](https://trello.com/b/ARMvx45K/pvb-paladin)  | Trello board containing product & sprint backlogs, sprint plannings|
 | [`Asset convention`](https://github.com/DanielNijkamp/PVB/wiki/Assets-Convention) | Convention for all art assets|
 | [`Functional design`](https://github.com/DanielNijkamp/PVB/wiki/Functional-design) | Contains information on game design and the decision making of it|
 | [`Technical design`](https://github.com/DanielNijkamp/PVB/wiki/Technical-design) | Contains specifics on technical aspect of our game |
 | [`Code convention`](https://github.com/DanielNijkamp/PVB/wiki/Code-convention) | Code convention for C# and Unity |
 | [`Gitflow convention`](https://github.com/DanielNijkamp/PVB/wiki/Version-Control-Conventions) | Convention on the use of git and how to work with it |
+| [`Folder structure`](https://github.com/DanielNijkamp/PVB/wiki/Folder-structure) | Project folder structure |
 | [`SCRUM notes`](https://github.com/DanielNijkamp/PVB/wiki/SCRUM-notes) | Notes on daily stand -up/down, sprint review & retrospectives|
-| [`Features`](https://github.com/DanielNijkamp/PVB/wiki/Features) | View per-feature documentation|
 | [`Usertest footage`](https://github.com/DanielNijkamp/PVB/wiki/Usertest-footage) | Contains usertest footage of our game |
+| [`Persona`](https://github.com/DanielNijkamp/PVB/wiki/Persona) | Art persona / target person |
+| [`Sketches`](https://github.com/DanielNijkamp/PVB/wiki/Sketches) | Art sketches |
+| [`Styleguide & Moodboard`](https://github.com/DanielNijkamp/PVB/wiki/Styleguide-&-Moodboard) | Art Styleguide & Moodboard |
 
 You can also browse our documentation via the [`wiki`](https://github.com/DanielNijkamp/PVB/wiki).
-
-
-
-
-
-
-
-
