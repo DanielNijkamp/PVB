@@ -41,10 +41,10 @@ Our game idea is to have a physics-based puzzle game where you need to explore d
 
 ||
 |--|
-|[**Eliza van Bokhoven (Lead artist)**]()|
-|[**Joyce Aker**]()|
-|[**Falko Vallinga**]()|
-|[**Ayman Bouazza**]()|
+|[**Eliza van Bokhoven (Lead artist)**](https://www.artstation.com/elizavanbokhoven)|
+|[**Joyce Aker**](https://www.artstation.com/joyceaker)|
+|[**Falko Vallinga**](https://www.artstation.com/falkovallinga)|
+|[**Ayman Bouazza**](https://www.artstation.com/ayman_bouazza)|
 </td></tr> </table>
 
 ## Documentation:
