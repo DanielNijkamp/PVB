@@ -1,0 +1,20 @@
+name: Label Pull Requests
+
+on:
+  pull_request:
+   types: [opened, edited, reopened, synchronize, converted_to_draft, closed, review_requested, ready_for_review]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout your code
+      uses: actions/checkout@v3
+    - uses: srvaroa/labeler@master
+      with:
+        config_path: .github/labeler.yml
+        use_local_config: true
+        fail_on_error: true
+    env:
+      GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+

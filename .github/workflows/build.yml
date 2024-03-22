@@ -1,0 +1,77 @@
+name: Build
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - master
+
+env:
+  PROJECT_NAME: PVB
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    name: Build for ${{ matrix.targetPlatform }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        targetPlatform:
+          - StandaloneWindows64
+          # - StandaloneOSX
+          # - Android
+          #- iOS
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Cache
+        uses: actions/cache@v3
+        with:
+          path: Library
+          key: Library-${{ matrix.targetPlatform }}
+          restore-keys: Library-
+      - name: Build project
+        uses: game-ci/unity-builder@v4
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+        with:
+          targetPlatform: ${{ matrix.targetPlatform }}
+          buildName: ${{ env.tag }}
+      - name: Zip output
+        run: |
+          cd ./build/${{ matrix.targetPlatform }}
+          zip -r ../../${{ env.PROJECT_NAME }}.${{ matrix.targetPlatform }}.zip .
+      - uses: actions/upload-artifact@v3
+        with:
+          name: ${{ env.PROJECT_NAME }}.${{ matrix.targetPlatform }}.zip
+          path: ${{ env.PROJECT_NAME }}.${{ matrix.targetPlatform }}.zip
+  create-release:
+    name: Upload and create new release
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create environment variables
+        run: |
+          date="$(date +"%Y-%m-%d")"
+          tag="Release_${{ github.run_number }}_$date"
+          echo "date=$date" >> $GITHUB_ENV
+          echo "tag=$tag" >> $GITHUB_ENV
+      - name: Download build artifacts
+        uses: actions/download-artifact@v3
+        with:
+          path: artifacts
+      - name: Create release
+        uses: softprops/action-gh-release@v1
+        with:
+          name: "Release #${{ github.run_number }} ${{ env.date }}"
+          tag_name: ${{ env.tag }}
+          files: artifacts/**/*.*
+          generate_release_notes: true
+      - uses: geekyeggo/delete-artifact@v2
+        with:
+          name: ${{ env.projectName }}*
