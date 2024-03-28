@@ -15,14 +15,16 @@ public sealed class ColorSequenceManager : MonoBehaviour, SequenceManager<EnumCo
     
 
     private int sequenceLength = 3;
-
+    private void Start()
+    {
+        StartSequence();
+    }
     #region Manage Sequence
     public void StartSequence()
     {
         for (int i = 0; i < sequenceLength; i++)
         {
-            EnumColor color;
-            color = GetRandomColor();
+            EnumColor color = GetRandomColor(); ;
             while(IsColorInSequence(color) || color == EnumColor.Unassigned)
             {
                 color = GetRandomColor();
@@ -37,8 +39,7 @@ public sealed class ColorSequenceManager : MonoBehaviour, SequenceManager<EnumCo
         {
             if (Sequence[i] != EnumColor.Unassigned) continue;
 
-            EnumColor color;
-            color = GetRandomColor();
+            EnumColor color = GetRandomColor();
             while (IsColorInSequence(color) || color == EnumColor.Unassigned)
             {
                 color = GetRandomColor();
@@ -91,8 +92,7 @@ public sealed class ColorSequenceManager : MonoBehaviour, SequenceManager<EnumCo
     }
     public bool CheckFinalSequenceInput(int currentLength)
     {
-        if (currentLength + 1 == sequenceLength) return true;
-        else return false;
+        return (currentLength + 1 == sequenceLength);
     }
     public void CheckSubmittedSequence()
     {
@@ -108,8 +108,14 @@ public sealed class ColorSequenceManager : MonoBehaviour, SequenceManager<EnumCo
         }
         if (isCorrect)
         {
-            if (sequenceLength == Sequence.Length) onSolved?.Invoke();
-            else NextRound();
+            if (sequenceLength == Sequence.Length)
+            {
+                onSolved?.Invoke();
+            }
+            else
+            {
+                NextRound();
+            }
         }
         ResetSubmittedSequence();
     }

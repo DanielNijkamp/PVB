@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class SequenceButton : SequenceItem<EnumColor> 
+public sealed class SequenceButton : SequenceItem<EnumColor> 
 {
-    public EnumColor ButtonValue;
+    [SerializeField] private EnumColor ButtonValue;
 
     public void Activate()
     {
