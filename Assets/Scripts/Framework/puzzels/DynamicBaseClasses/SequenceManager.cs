@@ -7,7 +7,8 @@ public interface SequenceManager<T>
     T[] Sequence { get; set; }
     T[] SubmittedSequence { get; set; }
 
-    void SetSequence();
+    void StartSequence();
     void RecieveValue(T value);
+    void CheckSubmittedSequence();
 
 }

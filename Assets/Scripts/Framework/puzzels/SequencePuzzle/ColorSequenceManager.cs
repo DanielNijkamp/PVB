@@ -1,20 +1,23 @@
 using UnityEngine;
 using System;
+using UnityEngine.Events;
 using System.Collections.Generic;
 
-public class ColorSequenceManager : MonoBehaviour, SequenceManager<EnumColor>
+public sealed class ColorSequenceManager : MonoBehaviour, SequenceManager<EnumColor>
 {
-    public List<SequenceItem<EnumColor>> sequenceButtons = new List<SequenceItem<EnumColor>>();
     public EnumColor[] Sequence { get; set; }  = new EnumColor[5];
     public EnumColor[] SubmittedSequence { get; set; } = new EnumColor[5];
 
+    [SerializeField] private UnityEvent onSolved = new UnityEvent();
+    [SerializeField] private UnityEvent onReset = new UnityEvent();
+
+
+    
+
     private int sequenceLength = 3;
-    void Start()
-    {
-        SetSequence();
-    }
+
     #region Manage Sequence
-    public void SetSequence()
+    public void StartSequence()
     {
         for (int i = 0; i < sequenceLength; i++)
         {
@@ -51,9 +54,12 @@ public class ColorSequenceManager : MonoBehaviour, SequenceManager<EnumColor>
             if(SubmittedSequence[i] == EnumColor.Unassigned)
             {
                 SubmittedSequence[i] = value;
+                if (CheckFinalSequenceInput(i))
+                        CheckSubmittedSequence();
                 break;
             }
         }
+      
     }
     public void ResetSubmittedSequence()
     {
@@ -82,6 +88,30 @@ public class ColorSequenceManager : MonoBehaviour, SequenceManager<EnumColor>
             }
         }
         return false;
+    }
+    public bool CheckFinalSequenceInput(int currentLength)
+    {
+        if (currentLength + 1 == sequenceLength) return true;
+        else return false;
+    }
+    public void CheckSubmittedSequence()
+    {
+        bool isCorrect = true;
+        for (int i = 0; i < sequenceLength; i++)
+        {
+            if (SubmittedSequence[i] != Sequence[i])
+            {
+                isCorrect = false;
+                onReset?.Invoke();
+                break;
+            }   
+        }
+        if (isCorrect)
+        {
+            if (sequenceLength == Sequence.Length) onSolved?.Invoke();
+            else NextRound();
+        }
+        ResetSubmittedSequence();
     }
     #endregion
 }
