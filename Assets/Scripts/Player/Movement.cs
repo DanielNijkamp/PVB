@@ -30,8 +30,12 @@ namespace Player
             
             character.Move(move);
         
-            Vector3 rotate = new Vector3(0, rotateInput.x, 0) * (rotationSpeed * Time.deltaTime);
-            transform.Rotate(rotate);
+            if (move != Vector3.zero)
+            {
+                Quaternion targetRotation = Quaternion.LookRotation(move);
+                Quaternion smoothedRotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+                transform.rotation = smoothedRotation;
+            }
         }
     
         public void Move(InputAction.CallbackContext context)
