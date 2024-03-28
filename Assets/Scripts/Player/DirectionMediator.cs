@@ -13,7 +13,7 @@ namespace Player
 
         private void Start()
         {
-            SwitchSetting(0);
+            SwitchSetting(currentSettingIndex);
         }
         
 
