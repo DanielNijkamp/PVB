@@ -1,6 +1,6 @@
 using UnityEngine;
 using Cinemachine;
-public class CameraFocuser : MonoBehaviour
+public sealed class CameraFocuser : MonoBehaviour
 {
     [SerializeField] private CinemachineTargetGroup trackTargets;
 
