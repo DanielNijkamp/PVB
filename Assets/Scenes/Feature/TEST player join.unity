@@ -249,8 +249,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 130889037}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.3311121, y: -0.0000000020045081, z: 7.0339423e-10, w: 0.9435914}
-  m_LocalPosition: {x: 2.9918735, y: 1.3875813, z: -11.750362}
+  m_LocalRotation: {x: 0.3510653, y: -0.0000004560311, z: 0.00000017097938, w: 0.936351}
+  m_LocalPosition: {x: 3.6677816, y: 0.047581196, z: -16.60882}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -389,7 +389,7 @@ Transform:
   m_GameObject: {fileID: 159018600}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.9918735, y: -6.5824184, z: -1.7503622}
+  m_LocalPosition: {x: 3.6677816, y: -7.9224186, z: -6.60882}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -409,12 +409,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PositionMode: 1
   m_RotationMode: 0
-  m_UpdateMethod: 1
+  m_UpdateMethod: 0
   m_Targets:
-  - target: {fileID: 0}
-    weight: 2
-    radius: 0
-  - target: {fileID: 0}
+  - target: {fileID: 2050117355}
     weight: 1
     radius: 0
 --- !u!1 &410087039
@@ -659,10 +656,10 @@ MonoBehaviour:
   m_AdjustmentMode: 2
   m_MaxDollyIn: 500
   m_MaxDollyOut: 500
-  m_MinimumDistance: 0.3
+  m_MinimumDistance: 6
   m_MaximumDistance: 2000
-  m_MinimumFOV: 3
-  m_MaximumFOV: 60
+  m_MinimumFOV: 49
+  m_MaximumFOV: 79
   m_MinimumOrthoSize: 1
   m_MaximumOrthoSize: 5000
 --- !u!114 &808378730
@@ -822,8 +819,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1483743702}
   - component: {fileID: 1483743701}
-  - component: {fileID: 1483743703}
-  - component: {fileID: 1483743704}
   m_Layer: 0
   m_Name: InputManager
   m_TagString: Untagged
@@ -846,11 +841,11 @@ MonoBehaviour:
   m_NotificationBehavior: 2
   m_MaxPlayerCount: 2
   m_AllowJoining: 1
-  m_JoinBehavior: 2
+  m_JoinBehavior: 0
   m_PlayerJoinedEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1483743704}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PlayerSpawner, Assembly-CSharp
         m_MethodName: SpawnPlayer
         m_Mode: 1
@@ -897,54 +892,12 @@ Transform:
   m_GameObject: {fileID: 1483743700}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.3181264, y: -6.5824184, z: -1.7503622}
+  m_LocalPosition: {x: -1.3181264, y: -6.2, z: -3.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1147103708}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1483743703
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1483743700}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de1ccc01b10d961478cf931c0ea02156, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  group: {fileID: 159018602}
---- !u!114 &1483743704
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1483743700}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21df2d457afcef4478a59cc983be1dae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 6235065132647322811, guid: 8c81bd53616d8074d94ce9c5b9aa4652, type: 3}
-  playerSpawn: {fileID: 2050117355}
-  SetupPlayer:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1483743703}
-        m_TargetAssemblyTypeName: CameraFocuser, Assembly-CSharp
-        m_MethodName: AddTargetToGroup
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &1735607639
 GameObject:
   m_ObjectHideFlags: 0
@@ -1084,7 +1037,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 3
+  field of view: 49
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -1110,8 +1063,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1735607639}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.3311121, y: -0.0000000020045081, z: 7.0339423e-10, w: 0.9435914}
-  m_LocalPosition: {x: 2.9918735, y: 1.5745602, z: -11.984966}
+  m_LocalRotation: {x: 0.3510653, y: -0.0000004560311, z: 0.00000017097938, w: 0.936351}
+  m_LocalPosition: {x: 3.6677816, y: -4.182837, z: -11.217656}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
