@@ -2,16 +2,16 @@ using UnityEngine;
 using Cinemachine;
 public sealed class CameraFocuser : MonoBehaviour
 {
-    [SerializeField] private CinemachineTargetGroup trackTargets;
+    private CinemachineTargetGroup trackTargets;
 
     private void Start()
     {
         trackTargets = FindObjectOfType<CinemachineTargetGroup>();
         AddTargetToGroup();
     }
-    public void AddTargetToGroup()
+    private void AddTargetToGroup()
     {
         Transform transform = gameObject.transform;
-        trackTargets.AddMember(transform, 0, 0);
+        trackTargets.AddMember(transform, 1, 0);
     }
 }
