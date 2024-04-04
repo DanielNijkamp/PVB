@@ -7,7 +7,7 @@ namespace Player
     public sealed class Movement : MonoBehaviour
     {
         [Header("Dependencies")] 
-        [SerializeField] private DirectionMediator directionMediator;
+        private DirectionMediator directionMediator;
         
         [Header("Settings")]
         [SerializeField] private float speed;
@@ -21,6 +21,7 @@ namespace Player
         private void Start()
         {
             character = GetComponent<CharacterController>();
+            directionMediator = FindObjectOfType<DirectionMediator>();
         }
         
         private void FixedUpdate()
