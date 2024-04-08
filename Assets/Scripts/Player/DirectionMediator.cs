@@ -29,7 +29,7 @@ namespace Player
             {
                 direction += GetVectorFromEnum(input.x > 0 ? currentSetting.Right : currentSetting.Left);
             }
-
+            
             return direction;
         }
         

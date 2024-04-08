@@ -1,0 +1,20 @@
+{
+  "GlobalObjectId_V1-2-99c9720ab356a0642a771bea13969a05-442538529-0": {
+    "GameObjectId": "GlobalObjectId_V1-2-99c9720ab356a0642a771bea13969a05-442538529-0",
+    "CommentText": "Scene essentials",
+    "AssetGUID": "99c9720ab356a0642a771bea13969a05",
+    "UniqueItemID": "GlobalObjectId_V1-2-99c9720ab356a0642a771bea13969a05-442538529-0"
+  },
+  "GlobalObjectId_V1-2-99c9720ab356a0642a771bea13969a05-1147103707-0": {
+    "GameObjectId": "GlobalObjectId_V1-2-99c9720ab356a0642a771bea13969a05-1147103707-0",
+    "CommentText": "This section includes various gameplay systems aswell as unity systems\n",
+    "AssetGUID": "99c9720ab356a0642a771bea13969a05",
+    "UniqueItemID": "GlobalObjectId_V1-2-99c9720ab356a0642a771bea13969a05-1147103707-0"
+  },
+  "GlobalObjectId_V1-2-99c9720ab356a0642a771bea13969a05-1882407570-0": {
+    "GameObjectId": "GlobalObjectId_V1-2-99c9720ab356a0642a771bea13969a05-1882407570-0",
+    "CommentText": "All gameobjects related to Camera",
+    "AssetGUID": "99c9720ab356a0642a771bea13969a05",
+    "UniqueItemID": "GlobalObjectId_V1-2-99c9720ab356a0642a771bea13969a05-1882407570-0"
+  }
+}
