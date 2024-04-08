@@ -2,6 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*TODO: 
+ * Prefab met seperate game object voor mesh
+ * Seperate input script
+ * Deze script aleen method met togglen van zichzelf en andere
+ * */
 public class LightsGame : MonoBehaviour
 {
     public GameObject[] otherObjectsToToggle; // Array to hold references to other objects to toggle
@@ -15,29 +20,33 @@ public class LightsGame : MonoBehaviour
 
     void Update()
     {
-        // Toggle the boolean variable of this GameObject
-        if (Input.GetMouseButtonDown(0)) // Check for right mouse button click
+        // Check if the left mouse button is clicked
+        if (Input.GetMouseButtonDown(0))
         {
-            toggleState = !toggleState;
-            gameObject.SetActive(toggleState);
+            // Cast a ray from the mouse position
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
 
-            // Toggle the boolean variable of another random GameObject
-            ToggleRandomObject();
-        }
-    }
+            // Check if the ray intersects with any object
+            if (Physics.Raycast(ray, out hit))
+            {
+                // Check if the object is one of the objects to toggle
+                foreach (GameObject obj in otherObjectsToToggle)
+                {
+                    if (hit.collider.gameObject == obj)
+                    {
+                        LightsGame otherToggleScript = obj.GetComponent<LightsGame>();
+                        MeshRenderer renderer = obj.GetComponent<MeshRenderer>();
+                        if (otherToggleScript != null)
+                        {
+                            otherToggleScript.toggleState = !otherToggleScript.toggleState;
 
-    void ToggleRandomObject()
-    {
-        // Choose a random object from the array of other objects
-        int randomIndex = Random.Range(0, otherObjectsToToggle.Length);
-        GameObject objectToToggle = otherObjectsToToggle[randomIndex];
-
-        // Toggle the boolean variable of the chosen object
-        LightsGame otherToggleScript = objectToToggle.GetComponent<LightsGame>();
-        if (otherToggleScript != null)
-        {
-            otherToggleScript.toggleState = !otherToggleScript.toggleState;
-            objectToToggle.SetActive(otherToggleScript.toggleState);
+                            renderer.enabled = !renderer.enabled;
+                            otherToggleScript.toggleState = renderer.enabled;
+                        }
+                    }
+                }
+            }
         }
     }
 }
