@@ -8,13 +8,13 @@ public class Timer : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI timerText;
     public float RemainingTime;
-    private pressurePlate pressurePlate;
+    private PressurePlate pressurePlate;
     [SerializeField] private UnityEvent onFinish = new UnityEvent();
 
 
     private void Start()
     {
-        pressurePlate = FindObjectOfType<pressurePlate>();
+        pressurePlate = FindObjectOfType<PressurePlate>();
     }
 
     void Update()
