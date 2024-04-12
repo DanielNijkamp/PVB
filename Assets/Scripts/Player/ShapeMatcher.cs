@@ -4,19 +4,37 @@ using UnityEngine;
 
 public class ShapeMatcher : MonoBehaviour
 {
-    public GameObject[] puzzlePieces; // Array of puzzle piece game objects
+    public GameObject[] puzzlePieces;
     public bool shadowFilled;
-    void Start()
+    public bool puzzlePiecesComplete;
+    void Update()
     {
-        if (puzzlePieces.Length == 3 && shadowFilled == true)
+        if (shadowFilled == true && puzzlePiecesComplete == true)
         {
             PuzzleComplete();
         }
+        else
+        {
+            shadowFilled = false;
+            Debug.Log("shadow not filled");
+        }
     }
-
+    public void FreezeMovement()
+    {
+        foreach (GameObject piece in puzzlePieces)
+        {
+            Rigidbody rigidbody = piece.GetComponent<Rigidbody>();
+            if (rigidbody != null)
+            {
+                rigidbody.constraints = RigidbodyConstraints.FreezePositionX |
+                                         RigidbodyConstraints.FreezePositionY |
+                                         RigidbodyConstraints.FreezePositionZ;
+            }
+        }
+    }
     public void PuzzleComplete()
     {
-
+        FreezeMovement();
+        Debug.Log("Puzzle complete! Congrats!");
     }
 }
-

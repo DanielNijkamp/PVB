@@ -1,65 +1,78 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class SpotLightDetection : MonoBehaviour
 {
-    //public UnityEvent shadowFilled;
-    private ShapeMatcher shapeMatcher;
+    public ShapeMatcher shapeMatcher;
+    public ShapeMatcher[] puzzlePieces;
 
-    public GameObject shadowObject; // GameObject representing the area where the shadow should be matched
-    public float matchThreshold = 0.8f; // Threshold for considering a match
+    [SerializeField] GameObject puzzlePiece;
+    [SerializeField] GameObject shadowPlace;
+    [SerializeField] float matchThreshold = 0.8f;
     [SerializeField] GameObject spotLight;
-    public float capsuleRadius = 0.8f; // Radius of the capsule cast
-    public float capsuleHeight = 4f; // Height of the capsule cast
+    [SerializeField] float capsuleRadius = 0.8f;
+    [SerializeField] float capsuleHeight = 4f;
 
     private void Start()
     {
-        shapeMatcher = GetComponentInChildren<ShapeMatcher>();
+        GameObject shapeMatchCheck = GameObject.Find("shapeMatchCheck");
     }
 
     private void Update()
     {
-        // Calculate the start and end positions for the capsule cast
+        if (shapeMatcher == null)
+        {
+            return;
+        }
         Vector3 start = spotLight.transform.position;
         Vector3 end = start + spotLight.transform.forward * capsuleHeight;
+        bool isHit = Physics.CapsuleCast(start, end, capsuleRadius, spotLight.transform.forward, out RaycastHit hit);
 
-        // Perform the capsule cast
-        RaycastHit[] hits = Physics.CapsuleCastAll(start, end, capsuleRadius, spotLight.transform.forward);
-
-        // Iterate through all hits
-        foreach (RaycastHit hit in hits)
+        if (isHit)
         {
-            if (hit.collider.CompareTag("PuzzlePiece"))
+            if (hit.collider.CompareTag("ShadowObject"))
             {
-                Debug.Log("Puzzle piece detected: " + hit.collider.gameObject.name);
+                Debug.Log("Shadow object detected means shadow not filled: " + hit.collider.gameObject.name);
+                shapeMatcher.shadowFilled = false;
             }
-            else if (hit.collider.CompareTag("ShadowObject"))
+            else
             {
-                if (shapeMatcher != null && shapeMatcher.shadowFilled)
-                {
-                    // Perform actions when shadow is filled
-                    shapeMatcher.shadowFilled = false;
-                    Debug.Log("Shadow is filled" + shapeMatcher.shadowFilled);
-                }
+                Debug.Log("Shadow object not detected means shadow filled: " + hit.collider.gameObject.name);
+                shapeMatcher.shadowFilled = true;
             }
         }
+        if (shapeMatcher != null && shapeMatcher.shadowFilled == false)
+        {
+            Debug.Log("Shadow is not filled");
+            ShadowCheck();
+        }
+        else
+        {
+            shapeMatcher.shadowFilled = true;
+        }
     }
+    private void ShadowCheck()
+    {
+        if (puzzlePieces.Length == 3)
+        {
+            Debug.Log("Puzzle pieces complete");
+            shapeMatcher.puzzlePiecesComplete = true;
+        }
+        else
+        {
+            Debug.Log("Puzzle pieces not complete");
+            shapeMatcher.puzzlePiecesComplete = false;
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
-        // Check if the GameObject entering the trigger is the one you want to detect.
-        if (other.CompareTag("PuzzlePiece")) // Change "YourTag" to the tag of the object you want to detect.
+        if (other.CompareTag("puzzlePiece"))
         {
-            // Perform actions when the object passes through the spotlight.
-            Debug.Log("Puzzle Piece detected in spotlight: " + other.gameObject.name);
-
-            // Example: Change the color of the object.
-            Renderer renderer = other.gameObject.GetComponent<Renderer>();
-            if (renderer != null)
-            {
-                renderer.material.color = Color.red;
-            }
+            Debug.Log("ALL PUZZLE PIECES DETECTED: " + other.gameObject.name);
         }
     }
 }
