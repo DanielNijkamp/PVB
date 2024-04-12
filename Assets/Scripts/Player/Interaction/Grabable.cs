@@ -8,30 +8,19 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(Rigidbody))]
 public sealed class Grabable : EventTrigger
 {
-    //
+    //should communicate outwards when it is ready to be grabable
     
-    [SerializeField, Required] private Transform grabbedPosition; 
-    
+    [BoxGroup("Events")]
     [SerializeField] private UnityEvent onGrab = new();
-    [SerializeField] private InputAction grabAction; // (Key)F + (gamepad south)X 
+    [SerializeField] private UnityEvent onReadyForGrab = new();
     
     [ShowNonSerializedField] private bool isOwned;
+
+    private void ToggleOwnership()
+    {
+        isOwned = !isOwned;
+    }
     
-    private void Enable(Collider other)
-    {
-        grabAction.Enable();
-    }
-
-    private void Disable(Collider other)
-    {
-        grabAction.Disable();
-    }
-
-    private void Grab()
-    {
-        isOwned = true;
-        //positioning
-    }
     //when in range allow for grabbing. 
     //when grabbed the object is owned by a player. 
     //player can press again to drop item at feet. 
