@@ -10,7 +10,7 @@ public sealed class Interactable : EventTrigger
 {
     [SerializeField] private UnityEvent onInteraction = new();
     [SerializeField] private InputAction interactAction;
-
+    
     [ShowNonSerializedField] private int collisionCount;
     private void Awake()
     {

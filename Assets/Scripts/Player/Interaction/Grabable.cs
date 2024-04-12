@@ -1,29 +1,44 @@
 using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.InputSystem;
 
 //TODO: namespace
 
 [RequireComponent(typeof(Rigidbody))]
-public sealed class Grabable : EventTrigger
+public sealed class Grabable : MonoBehaviour
 {
-    //should communicate outwards when it is ready to be grabable
-    
-    [BoxGroup("Events")]
     [SerializeField] private UnityEvent onGrab = new();
-    [SerializeField] private UnityEvent onReadyForGrab = new();
+    [SerializeField] private UnityEvent onRelease = new();
     
-    [ShowNonSerializedField] private bool isOwned;
+    [field: ShowNonSerializedField] public bool isOwned { get; private set; }
+
+    private new Rigidbody rigidbody;
+
+    private void Awake()
+    {
+        rigidbody = GetComponent<Rigidbody>();
+    }
 
     private void ToggleOwnership()
     {
         isOwned = !isOwned;
     }
-    
-    //when in range allow for grabbing. 
-    //when grabbed the object is owned by a player. 
-    //player can press again to drop item at feet. 
-    
+
+    public void Grab()
+    {
+        ToggleOwnership();
+        onGrab?.Invoke();
+        
+        //freeze physics
+        
+    }
+
+    public void Release()
+    {
+        ToggleOwnership();
+        onRelease?.Invoke();
+        
+        //enable physics again
+    }
     
 }

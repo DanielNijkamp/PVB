@@ -14,10 +14,17 @@ public class EventTrigger : MonoBehaviour
     
     [SerializeField, HideIf("supplyInfo")] protected UnityEvent onTriggerEnter = new();
     [SerializeField, HideIf("supplyInfo")] protected UnityEvent onTriggerExit = new();
-    
+
+    [SerializeField, BoxGroup("Sorting")] private bool withTag;
+    [SerializeField,Tag, EnableIf("withTag"), BoxGroup("Sorting")] protected string tag;
     
     private void OnTriggerEnter(Collider other)
     {
+        if (withTag)
+        {
+            if (!other.CompareTag(tag)) return;
+        }
+        
         if (supplyInfo)
         {
             onTriggerEnterWithInfo?.Invoke(other);
@@ -26,10 +33,16 @@ public class EventTrigger : MonoBehaviour
         {
             onTriggerEnter?.Invoke();
         }
+        
     }
 
     private void OnTriggerExit(Collider other)
     {
+        if (withTag)
+        {
+            if (!other.CompareTag(tag)) return;
+        }        
+        
         if (supplyInfo)
         {
             onTriggerExitWithInfo?.Invoke(other);
