@@ -1,40 +1,47 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class ShapeMatcher : MonoBehaviour
 {
-    public GameObject[] puzzlePieces;
-    public bool shadowFilled;
+    public PilarCheck[] puzzlePieces;
     public bool puzzlePiecesComplete;
+    public bool allPilarsInPlace;
+    bool allPuzzlePiecesInPlace = false;
+    public PilarCheck pilarCheck;
+
+    void Start()
+    {
+        pilarCheck = FindObjectOfType<PilarCheck>();
+        pilarCheck.pilarInPlace = false;
+    }
+
     void Update()
     {
-        if (shadowFilled == true && puzzlePiecesComplete == true)
+        if (puzzlePieces.All(x => x.pilarInPlace))
+        {
+            allPuzzlePiecesInPlace = true;
+        }
+        if (allPuzzlePiecesInPlace == pilarCheck.pilarInPlace == true)
+        {
+            allPilarsInPlace = true;
+        }
+        if (pilarCheck.pilarInPlace == true && allPilarsInPlace == true)
+        {
+            puzzlePiecesComplete = true;
+        }
+        if (puzzlePiecesComplete == true)
         {
             PuzzleComplete();
         }
         else
         {
-            shadowFilled = false;
-            Debug.Log("shadow not filled");
-        }
-    }
-    public void FreezeMovement()
-    {
-        foreach (GameObject piece in puzzlePieces)
-        {
-            Rigidbody rigidbody = piece.GetComponent<Rigidbody>();
-            if (rigidbody != null)
-            {
-                rigidbody.constraints = RigidbodyConstraints.FreezePositionX |
-                                         RigidbodyConstraints.FreezePositionY |
-                                         RigidbodyConstraints.FreezePositionZ;
-            }
+            Debug.Log("puzzle not filled");
         }
     }
     public void PuzzleComplete()
     {
-        FreezeMovement();
         Debug.Log("Puzzle complete! Congrats!");
     }
 }
