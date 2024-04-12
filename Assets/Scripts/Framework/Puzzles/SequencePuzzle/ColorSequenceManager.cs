@@ -1,7 +1,7 @@
 using UnityEngine;
 using System;
 using UnityEngine.Events;
-using System.Collections.Generic;
+
 
 public sealed class ColorSequenceManager : MonoBehaviour, SequenceManager<EnumColor>
 {
@@ -11,23 +11,20 @@ public sealed class ColorSequenceManager : MonoBehaviour, SequenceManager<EnumCo
     [SerializeField] private UnityEvent onSolved = new UnityEvent();
     [SerializeField] private UnityEvent onReset = new UnityEvent();
 
-
-    
-
     private int sequenceLength = 3;
     private void Start()
     {
-        StartSequence();
+        SetSequence();
     }
     #region Manage Sequence
-    public void StartSequence()
+    public void SetSequence()
     {
         for (int i = 0; i < sequenceLength; i++)
         {
-            EnumColor color = GetRandomColor(); ;
-            while(IsColorInSequence(color) || color == EnumColor.Unassigned)
+            EnumColor color = GetRandomElement(); 
+            while(IsElementinSequence(color) || color == EnumColor.Unassigned)
             {
-                color = GetRandomColor();
+                color = GetRandomElement();
             }
             Sequence[i] = color;
         }
@@ -39,10 +36,10 @@ public sealed class ColorSequenceManager : MonoBehaviour, SequenceManager<EnumCo
         {
             if (Sequence[i] != EnumColor.Unassigned) continue;
 
-            EnumColor color = GetRandomColor();
-            while (IsColorInSequence(color) || color == EnumColor.Unassigned)
+            EnumColor color = GetRandomElement();
+            while (IsElementinSequence(color) || color == EnumColor.Unassigned)
             {
-                color = GetRandomColor();
+                color = GetRandomElement();
             }
             Sequence[i] = color;
             break;
@@ -72,14 +69,14 @@ public sealed class ColorSequenceManager : MonoBehaviour, SequenceManager<EnumCo
     #endregion
 
     #region checks
-    private EnumColor GetRandomColor()
+    public EnumColor GetRandomElement()
     {
         Array enumValues = Enum.GetValues(typeof(EnumColor));
         System.Random random = new System.Random();
         return (EnumColor)enumValues.GetValue(random.Next(enumValues.Length));
     }
 
-    private bool IsColorInSequence(EnumColor color)
+    public bool IsElementinSequence(EnumColor color)
     {
         foreach (EnumColor c in Sequence)
         {

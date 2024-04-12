@@ -2,11 +2,11 @@ using UnityEngine;
 
 public sealed class SequenceButton : SequenceItem<EnumColor> 
 {
-    [SerializeField] private EnumColor ButtonValue;
+    [SerializeField] private EnumColor buttonValue;
 
     public void Activate()
     {
         base.isActivated = true;
-        base.onActivate?.Invoke(ButtonValue);
+        base.onActivate?.Invoke(buttonValue);
     }
 }
