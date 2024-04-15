@@ -2,22 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.Events;
+using System;
 
-public class PilarCheck : MonoBehaviour
+public sealed class Pillars: MonoBehaviour
 {
-    public bool pilarInPlace;
-    public GameObject pilarPlace;
-    public GameObject pilar;
+    public bool Completed { get; private set; }
 
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject == pilar)
+    [SerializeField] private Transform lockPosition;
+    [SerializeField] private GameObject pillar;
+    [SerializeField] private UnityEvent onCompleted = new();
+
+    private void OnTriggerEnter(Collider other)
+    {   
+        if (other.gameObject == pillar)
         {
-            pilarInPlace = true;
-            FreezeMovement(other.gameObject);
+            Completed = true;
+            lock(other.gameObject);
         }
     }
-    public void FreezeMovement(GameObject obj)
+    private void Lock(GameObject obj)
     {
         {
             Rigidbody rigidbody = obj.GetComponent<Rigidbody>();

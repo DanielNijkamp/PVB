@@ -2,46 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ShapeMatcher : MonoBehaviour
 {
-    public PilarCheck[] puzzlePieces;
-    public bool puzzlePiecesComplete;
-    public bool allPilarsInPlace;
-    bool allPuzzlePiecesInPlace = false;
-    public PilarCheck pilarCheck;
-
-    void Start()
+    [SerializeField] private Pillars[] pillars;
+    [SerializeField] private UnityEvent onCompletion = new();
+    public void CheckCompletion()
     {
-        pilarCheck = FindObjectOfType<PilarCheck>();
-        pilarCheck.pilarInPlace = false;
-    }
-
-    void Update()
-    {
-        if (puzzlePieces.All(x => x.pilarInPlace))
+        if (pillars.All(x => x.Completed))
         {
-            allPuzzlePiecesInPlace = true;
+            onCompletion?.Invoke();
         }
-        if (allPuzzlePiecesInPlace == pilarCheck.pilarInPlace == true)
-        {
-            allPilarsInPlace = true;
-        }
-        if (pilarCheck.pilarInPlace == true && allPilarsInPlace == true)
-        {
-            puzzlePiecesComplete = true;
-        }
-        if (puzzlePiecesComplete == true)
-        {
-            PuzzleComplete();
-        }
-        else
-        {
-            Debug.Log("puzzle not filled");
-        }
-    }
-    public void PuzzleComplete()
-    {
-        Debug.Log("Puzzle complete! Congrats!");
     }
 }
