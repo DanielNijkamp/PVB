@@ -137,7 +137,6 @@ GameObject:
   - component: {fileID: 16296676}
   - component: {fileID: 16296681}
   - component: {fileID: 16296682}
-  - component: {fileID: 16296683}
   m_Layer: 1
   m_Name: Cube
   m_TagString: Untagged
@@ -246,7 +245,7 @@ MonoBehaviour:
   onDetected:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 16296683}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: VisibilitySymbol, Assembly-CSharp
         m_MethodName: RevealToggle
         m_Mode: 1
@@ -273,9 +272,9 @@ MonoBehaviour:
   onDetectionLost:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 16296683}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: VisibilitySymbol, Assembly-CSharp
-        m_MethodName: RevealToggle
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -287,7 +286,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 16296682}
         m_TargetAssemblyTypeName: SymbolTile, Assembly-CSharp
-        m_MethodName: ToggleActiveState
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -326,18 +325,6 @@ MonoBehaviour:
         m_CallState: 2
   itemValue: 1
   isActive: 0
---- !u!114 &16296683
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 16296675}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ff50f951ec9d2b46b834a496838d292, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &34785839
 GameObject:
   m_ObjectHideFlags: 0
@@ -532,6 +519,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  sequenceLength: 2
 --- !u!114 &45864315
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1092,7 +1080,6 @@ GameObject:
   - component: {fileID: 536429585}
   - component: {fileID: 536429584}
   - component: {fileID: 536429589}
-  - component: {fileID: 536429590}
   m_Layer: 1
   m_Name: Cube (2)
   m_TagString: Untagged
@@ -1115,7 +1102,7 @@ MonoBehaviour:
   onDetected:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 536429590}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: VisibilitySymbol, Assembly-CSharp
         m_MethodName: RevealToggle
         m_Mode: 1
@@ -1142,9 +1129,9 @@ MonoBehaviour:
   onDetectionLost:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 536429590}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: VisibilitySymbol, Assembly-CSharp
-        m_MethodName: RevealToggle
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1156,7 +1143,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 536429589}
         m_TargetAssemblyTypeName: SymbolTile, Assembly-CSharp
-        m_MethodName: ToggleActiveState
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1281,18 +1268,6 @@ MonoBehaviour:
         m_CallState: 2
   itemValue: 3
   isActive: 0
---- !u!114 &536429590
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 536429582}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ff50f951ec9d2b46b834a496838d292, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &754957725
 GameObject:
   m_ObjectHideFlags: 0
@@ -1984,7 +1959,6 @@ GameObject:
   - component: {fileID: 1175101261}
   - component: {fileID: 1175101260}
   - component: {fileID: 1175101265}
-  - component: {fileID: 1175101266}
   m_Layer: 1
   m_Name: Cube (4)
   m_TagString: Untagged
@@ -2007,7 +1981,7 @@ MonoBehaviour:
   onDetected:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1175101266}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: VisibilitySymbol, Assembly-CSharp
         m_MethodName: RevealToggle
         m_Mode: 1
@@ -2036,7 +2010,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1175101265}
         m_TargetAssemblyTypeName: SymbolTile, Assembly-CSharp
-        m_MethodName: ToggleActiveState
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2046,9 +2020,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1175101266}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: VisibilitySymbol, Assembly-CSharp
-        m_MethodName: RevealToggle
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2173,18 +2147,6 @@ MonoBehaviour:
         m_CallState: 2
   itemValue: 5
   isActive: 0
---- !u!114 &1175101266
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1175101258}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ff50f951ec9d2b46b834a496838d292, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1335077974
 GameObject:
   m_ObjectHideFlags: 0
@@ -2438,7 +2400,6 @@ GameObject:
   - component: {fileID: 1354502138}
   - component: {fileID: 1354502143}
   - component: {fileID: 1354502144}
-  - component: {fileID: 1354502145}
   m_Layer: 1
   m_Name: Cube (1)
   m_TagString: Untagged
@@ -2547,7 +2508,7 @@ MonoBehaviour:
   onDetected:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1354502145}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: VisibilitySymbol, Assembly-CSharp
         m_MethodName: RevealToggle
         m_Mode: 1
@@ -2574,9 +2535,9 @@ MonoBehaviour:
   onDetectionLost:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1354502145}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: VisibilitySymbol, Assembly-CSharp
-        m_MethodName: RevealToggle
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2588,7 +2549,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1354502144}
         m_TargetAssemblyTypeName: SymbolTile, Assembly-CSharp
-        m_MethodName: ToggleActiveState
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2627,18 +2588,6 @@ MonoBehaviour:
         m_CallState: 2
   itemValue: 2
   isActive: 0
---- !u!114 &1354502145
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1354502137}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ff50f951ec9d2b46b834a496838d292, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1517317372
 GameObject:
   m_ObjectHideFlags: 0
@@ -2653,7 +2602,6 @@ GameObject:
   - component: {fileID: 1517317375}
   - component: {fileID: 1517317374}
   - component: {fileID: 1517317379}
-  - component: {fileID: 1517317380}
   m_Layer: 1
   m_Name: Cube (3)
   m_TagString: Untagged
@@ -2676,7 +2624,7 @@ MonoBehaviour:
   onDetected:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1517317380}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: VisibilitySymbol, Assembly-CSharp
         m_MethodName: RevealToggle
         m_Mode: 1
@@ -2705,7 +2653,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1517317379}
         m_TargetAssemblyTypeName: SymbolTile, Assembly-CSharp
-        m_MethodName: ToggleActiveState
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2715,9 +2663,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1517317380}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: VisibilitySymbol, Assembly-CSharp
-        m_MethodName: RevealToggle
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2842,18 +2790,6 @@ MonoBehaviour:
         m_CallState: 2
   itemValue: 4
   isActive: 0
---- !u!114 &1517317380
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1517317372}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ff50f951ec9d2b46b834a496838d292, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1781775573
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public enum EnumSymbols
 {
-    Unassigned,
+    None,
     Circle,
     X,
     Triangle,

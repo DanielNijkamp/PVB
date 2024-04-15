@@ -4,12 +4,12 @@ using System.Collections.Generic;
 using System.Linq;
 public interface SequenceManager<T>
 {
-    T[] Sequence { get; set; }
-    T[] SubmittedSequence { get; set; }
+    public T[] Sequence { get; set; }
+    public T[] SubmittedSequence { get; set; }
 
-    void SetSequence();
-    void RecieveValue(T value);
-    void CheckSubmittedSequence();
+   public void SetSequence();
+    public void RecieveValue(T value);
+    public void CheckSubmittedSequence();
     T GetRandomElement()
     {
         Array enumValues = Enum.GetValues(typeof(T));

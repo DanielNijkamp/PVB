@@ -7,7 +7,8 @@ public class SymbolSequenceManager : MonoBehaviour , SequenceManager<EnumSymbols
 
     [SerializeField] private UnityEvent onSolved = new ();
     [SerializeField] private UnityEvent onReset = new ();
-    private int sequenceLength = 2;
+    [Tooltip("must be between 0 and 4")]
+    [SerializeField] private int sequenceLength;
 
     #region Manage Sequence
     private void Start()
@@ -31,7 +32,7 @@ public class SymbolSequenceManager : MonoBehaviour , SequenceManager<EnumSymbols
         for (int i = 0; i < sequenceLength; i++)
         {
             EnumSymbols symbol = ((SequenceManager<EnumSymbols>)this).GetRandomElement();
-            while (((SequenceManager<EnumSymbols>)this).IsElementinSequence(symbol) || symbol == EnumSymbols.Unassigned)
+            while (((SequenceManager<EnumSymbols>)this).IsElementinSequence(symbol) || symbol == EnumSymbols.None)
             {
                 symbol = ((SequenceManager<EnumSymbols>)this).GetRandomElement();
             }
@@ -49,7 +50,7 @@ public class SymbolSequenceManager : MonoBehaviour , SequenceManager<EnumSymbols
         print("recieved" + value);
         for (int i = 0; i < SubmittedSequence.Length; i++)
         {
-            if (SubmittedSequence[i] == EnumSymbols.Unassigned)
+            if (SubmittedSequence[i] == EnumSymbols.None)
             {
                 SubmittedSequence[i] = value;
                 if (CheckFinalSequenceInput(i))
@@ -67,8 +68,9 @@ public class SymbolSequenceManager : MonoBehaviour , SequenceManager<EnumSymbols
         {
             if (SubmittedSequence[i] != Sequence[i])
             {
+                onReset?.Invoke();
                 isCorrect = false;
-                break;
+                return;
             }
         }
 
@@ -82,10 +84,6 @@ public class SymbolSequenceManager : MonoBehaviour , SequenceManager<EnumSymbols
         {
             NextRound();
         }
-        else
-        {
-            onReset?.Invoke();
-        }
     }
     public bool CheckFinalSequenceInput(int currentLength)
     {
@@ -95,7 +93,7 @@ public class SymbolSequenceManager : MonoBehaviour , SequenceManager<EnumSymbols
     {
         for (int i = 0; i < SubmittedSequence.Length; i++)
         {
-            SubmittedSequence[i] = EnumSymbols.Unassigned;
+            SubmittedSequence[i] = EnumSymbols.None;
 
         }
     }

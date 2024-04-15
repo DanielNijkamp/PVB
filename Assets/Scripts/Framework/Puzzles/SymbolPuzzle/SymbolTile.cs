@@ -5,7 +5,7 @@ using UnityEngine;
 public class SymbolTile : SequenceItem<EnumSymbols>
 {
     [SerializeField] private EnumSymbols itemValue;
-    [HideInInspector] public bool isActive = false;
+    [HideInInspector] public bool isActive;
     public void Activate()
     {
         if (isActivated)
