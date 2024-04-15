@@ -1,49 +1,53 @@
+using Events;
 using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
-//TODO: namespace
-
-public sealed class Interactable : EventTrigger
+namespace Player.Interaction
 {
-    [SerializeField] private UnityEvent onInteraction = new();
-    [SerializeField] private InputAction interactAction;
+    public sealed class Interactable : EventTrigger
+    {
+        [SerializeField] private UnityEvent onInteraction = new();
+        [SerializeField] private InputAction interactAction;
     
-    [ShowNonSerializedField] private int collisionCount;
-    private void Awake()
-    {
-        interactAction.performed += _ => Interact();
-        onTriggerEnter.AddListener(Enable);
-        onTriggerExit.AddListener(Disable);
-    }
-
-    private void OnDestroy()
-    {
-        interactAction.performed -= _ => Interact();
-        onTriggerEnter.RemoveListener(Enable);
-        onTriggerExit.RemoveListener(Disable);
-    }
-
-    private void Enable()
-    {
-        collisionCount++;
-        interactAction.Enable();
-    }
-
-    private void Disable()
-    {
-        var result = collisionCount--;
-        if (result == 0)
+        [ShowNonSerializedField] private int collisionCount;
+        private void Awake()
         {
-            interactAction.Disable();
+            interactAction.performed += _ => Interact();
+            onTriggerEnter.AddListener(Enable);
+            onTriggerExit.AddListener(Disable);
         }
-    }
+
+        private void OnDestroy()
+        {
+            interactAction.performed -= _ => Interact();
+            onTriggerEnter.RemoveListener(Enable);
+            onTriggerExit.RemoveListener(Disable);
+        }
+
+        private void Enable()
+        {
+            collisionCount++;
+            interactAction.Enable();
+        }
+
+        private void Disable()
+        {
+            var result = collisionCount--;
+            if (result == 0)
+            {
+                interactAction.Disable();
+            }
+        }
     
-    private void Interact()
-    {
-        onInteraction?.Invoke();
-    }
+        private void Interact()
+        {
+            onInteraction?.Invoke();
+        }
     
+    }
 }
+
+

@@ -3,68 +3,70 @@ using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.Events;
 
-//TODO: namespace
-
-[RequireComponent(typeof(Rigidbody))]
-public sealed class Grabable : MonoBehaviour
+namespace Player.Interaction
 {
-    [SerializeField] private UnityEvent onGrab = new();
-    [SerializeField] private UnityEvent onRelease = new();
-    
-    [field: ShowNonSerializedField] public bool IsOwned { get; private set; }
-
-    private bool updatePosition;
-    private new Rigidbody rigidbody;
-    private new Collider collider;
-    
-    private Transform grabTransform;
-
-    private void Awake()
+    [RequireComponent(typeof(Rigidbody))]
+    public sealed class Grabable : MonoBehaviour
     {
-        rigidbody = GetComponent<Rigidbody>();
-        collider = GetComponent<Collider>();
-    }
-    
-    private void FixedUpdate()
-    {
-        if (!updatePosition) return;
+        [SerializeField] private UnityEvent onGrab = new();
+        [SerializeField] private UnityEvent onRelease = new();
         
-        rigidbody.MovePosition(grabTransform.position);
-        rigidbody.MoveRotation(grabTransform.rotation);
-    }
+        [field: ShowNonSerializedField] public bool IsOwned { get; private set; }
     
-    public void Grab(Transform grabTransform)
-    {
-        this.grabTransform = grabTransform;
+        private bool updatePosition;
+        private new Rigidbody rigidbody;
+        private new Collider collider;
         
-        ToggleOwnership();
-        TogglePhysics();
-        ToggleTracking();
-        onGrab?.Invoke();
-    }
-
-    public void Release()
-    {
-        ToggleOwnership();
-        TogglePhysics();
-        ToggleTracking();
-        onRelease?.Invoke();
-    }
-
-    private void ToggleOwnership()
-    {
-        IsOwned = !IsOwned;
-    }
+        private Transform grabTransform;
     
-    private void ToggleTracking()
-    {
-        updatePosition = !updatePosition;
-    }
+        private void Awake()
+        {
+            rigidbody = GetComponent<Rigidbody>();
+            collider = GetComponent<Collider>();
+        }
+        
+        private void FixedUpdate()
+        {
+            if (!updatePosition) return;
+            
+            rigidbody.MovePosition(grabTransform.position);
+            rigidbody.MoveRotation(grabTransform.rotation);
+        }
+        
+        public void Grab(Transform grabTransform)
+        {
+            this.grabTransform = grabTransform;
+            
+            ToggleOwnership();
+            TogglePhysics();
+            ToggleTracking();
+            onGrab?.Invoke();
+        }
     
-    private void TogglePhysics()
-    {
-        collider.enabled = !collider.enabled;
-
-    }
+        public void Release()
+        {
+            ToggleOwnership();
+            TogglePhysics();
+            ToggleTracking();
+            onRelease?.Invoke();
+        }
     
+        private void ToggleOwnership()
+        {
+            IsOwned = !IsOwned;
+        }
+        
+        private void ToggleTracking()
+        {
+            updatePosition = !updatePosition;
+        }
+        
+        private void TogglePhysics()
+        {
+            collider.enabled = !collider.enabled;
+    
+        }
+        
+    }
 }
+
