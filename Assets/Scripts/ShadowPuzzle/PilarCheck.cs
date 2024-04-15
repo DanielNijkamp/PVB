@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using System;
 
-public sealed class Pillars: MonoBehaviour
+public sealed class Pillar: MonoBehaviour
 {
     public bool Completed { get; private set; }
 
@@ -18,12 +18,11 @@ public sealed class Pillars: MonoBehaviour
         if (other.gameObject == pillar)
         {
             Completed = true;
-            lock(other.gameObject);
+            Lock(other.gameObject);
         }
     }
     private void Lock(GameObject obj)
     {
-        {
             Rigidbody rigidbody = obj.GetComponent<Rigidbody>();
             if (rigidbody != null)
             {
@@ -31,6 +30,5 @@ public sealed class Pillars: MonoBehaviour
                                          RigidbodyConstraints.FreezePositionY |
                                          RigidbodyConstraints.FreezePositionZ;
             }
-        }
     }
 }

@@ -6,7 +6,7 @@ using UnityEngine.Events;
 
 public class ShapeMatcher : MonoBehaviour
 {
-    [SerializeField] private Pillars[] pillars;
+    [SerializeField] private Pillar[] pillars;
     [SerializeField] private UnityEvent onCompletion = new();
     public void CheckCompletion()
     {
