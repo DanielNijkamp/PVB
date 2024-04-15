@@ -15,18 +15,6 @@ public class SymbolSequenceManager : MonoBehaviour , SequenceManager<EnumSymbols
     {
         SetSequence();
     }
-    private void Update()
-    {
-        foreach (var item in Sequence)
-        {
-            Debug.Log("Sequence " + item.ToString());
-        }
-        foreach (var item in SubmittedSequence)
-        {
-            Debug.Log("Submitted " + item.ToString());
-        }
-
-    }
     public void SetSequence()
     {
         for (int i = 0; i < sequenceLength; i++)
@@ -47,7 +35,6 @@ public class SymbolSequenceManager : MonoBehaviour , SequenceManager<EnumSymbols
     }
     public void RecieveValue(EnumSymbols value)
     {
-        print("recieved" + value);
         for (int i = 0; i < SubmittedSequence.Length; i++)
         {
             if (SubmittedSequence[i] == EnumSymbols.None)
@@ -79,7 +66,6 @@ public class SymbolSequenceManager : MonoBehaviour , SequenceManager<EnumSymbols
             onSolved?.Invoke();
             return; 
         }
-
         if (isCorrect)
         {
             NextRound();

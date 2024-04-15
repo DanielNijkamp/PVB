@@ -1,11 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SymbolTile : SequenceItem<EnumSymbols>
 {
     [SerializeField] private EnumSymbols itemValue;
-    [HideInInspector] public bool isActive;
+    [HideInInspector] public bool IsActive;
     public void Activate()
     {
         if (isActivated)

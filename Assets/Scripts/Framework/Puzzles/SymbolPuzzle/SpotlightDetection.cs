@@ -1,17 +1,19 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SpotlightDetection : MonoBehaviour
 {
     private Light light;
-    public float coneAngle;
-    public float maxDistance = 10f;
-    public float capsuleRadius = 0.5f;
-    public float capsuleLength = 5f;
-    public LayerMask layerMask;
+    [Header("configuration")]
+    [SerializeField] private  float coneAngle;
+    [SerializeField] private float maxDistance = 10f;
+    [SerializeField] private float capsuleRadius = 0.5f;
+    [SerializeField] private float capsuleLength = 5f;
+    [SerializeField] private LayerMask layerMask;
     [SerializeField] private List<Transform> lastHitObjects = new List<Transform>();
     [SerializeField] private List<Transform> currentHitObjects = new List<Transform>();
+    [Header("Debug")]
+    [SerializeField] private bool debugGyzmos;
 
     private void Start()
     {
@@ -34,6 +36,7 @@ public class SpotlightDetection : MonoBehaviour
             {
                 currentHitObjects.Add(hitTransform);
                 hitTransform.GetComponent<SpotlightDDetectionHandler>().OnDetected();
+                if(debugGyzmos)
                 Debug.DrawLine(transform.position, hit.point, Color.red);
             }
         }
@@ -52,7 +55,7 @@ public class SpotlightDetection : MonoBehaviour
                 lastHitObjects.Add(currentHitObjects[i]);
             }
         }
-
+        if(debugGyzmos)
         DebugDrawCapsule(capsuleStart, capsuleEnd, capsuleRadius, Color.green);
     }
 
