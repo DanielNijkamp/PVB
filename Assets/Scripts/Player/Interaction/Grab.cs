@@ -10,12 +10,11 @@ namespace Player.Interaction
     {
         [SerializeField] private InputAction grabAction;
         
-        
         [SerializeField, BoxGroup("Positions")] private Transform grabPosition;
         [SerializeField, BoxGroup("Positions")] private Transform dropPosition;
         
         private readonly List<Grabable> inRange = new();
-        [CanBeNull] private Grabable heldObject;
+        private Grabable heldObject;
         
         private void Awake()
         {
@@ -37,7 +36,7 @@ namespace Player.Interaction
         {
             if (!target.TryGetComponent<Grabable>(out var grabable)) return;
 
-            if (grabable.isOwned) return;
+            if (grabable.IsOwned) return;
             
             inRange.Add(grabable);
             
@@ -67,15 +66,15 @@ namespace Player.Interaction
 
         private void GrabObject()
         {
-            var nearestObject = CalculateNearest();
             if (heldObject == null)
             {
-                nearestObject.Grab();
-                nearestObject.transform.position = grabPosition.position;
+                var nearestObject = CalculateNearest();
+                nearestObject.Grab(grabPosition);
+                heldObject = nearestObject;
             }
             else
             {
-                nearestObject.Release();
+                heldObject.Release();
                 heldObject.transform.position = dropPosition.position;
                 heldObject = null;
             }

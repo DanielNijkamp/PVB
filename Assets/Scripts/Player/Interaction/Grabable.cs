@@ -1,3 +1,4 @@
+using System;
 using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.Events;
@@ -10,35 +11,60 @@ public sealed class Grabable : MonoBehaviour
     [SerializeField] private UnityEvent onGrab = new();
     [SerializeField] private UnityEvent onRelease = new();
     
-    [field: ShowNonSerializedField] public bool isOwned { get; private set; }
+    [field: ShowNonSerializedField] public bool IsOwned { get; private set; }
 
+    private bool updatePosition;
     private new Rigidbody rigidbody;
+    private new Collider collider;
+    
+    private Transform grabTransform;
 
     private void Awake()
     {
         rigidbody = GetComponent<Rigidbody>();
+        collider = GetComponent<Collider>();
     }
-
-    private void ToggleOwnership()
+    
+    private void FixedUpdate()
     {
-        isOwned = !isOwned;
+        if (!updatePosition) return;
+        
+        rigidbody.MovePosition(grabTransform.position);
+        rigidbody.MoveRotation(grabTransform.rotation);
     }
-
-    public void Grab()
+    
+    public void Grab(Transform grabTransform)
     {
+        this.grabTransform = grabTransform;
+        
         ToggleOwnership();
+        TogglePhysics();
+        ToggleTracking();
         onGrab?.Invoke();
-        
-        //freeze physics
-        
     }
 
     public void Release()
     {
         ToggleOwnership();
+        TogglePhysics();
+        ToggleTracking();
         onRelease?.Invoke();
-        
-        //enable physics again
+    }
+
+    private void ToggleOwnership()
+    {
+        IsOwned = !IsOwned;
+    }
+    
+    private void ToggleTracking()
+    {
+        updatePosition = !updatePosition;
+    }
+    
+    private void TogglePhysics()
+    {
+        collider.enabled = !collider.enabled;
+
     }
     
 }
