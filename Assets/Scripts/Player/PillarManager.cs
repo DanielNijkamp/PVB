@@ -4,7 +4,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class ShapeMatcher : MonoBehaviour
+public sealed class PillarManager : MonoBehaviour
 {
     [SerializeField] private Pillar[] pillars;
     [SerializeField] private UnityEvent onCompletion = new();

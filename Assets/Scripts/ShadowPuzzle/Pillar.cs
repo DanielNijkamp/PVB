@@ -19,6 +19,7 @@ public sealed class Pillar: MonoBehaviour
         {
             Completed = true;
             Lock(other.gameObject);
+            onCompleted?.Invoke();
         }
     }
     private void Lock(GameObject obj)
@@ -26,9 +27,7 @@ public sealed class Pillar: MonoBehaviour
             Rigidbody rigidbody = obj.GetComponent<Rigidbody>();
             if (rigidbody != null)
             {
-                rigidbody.constraints = RigidbodyConstraints.FreezePositionX |
-                                         RigidbodyConstraints.FreezePositionY |
-                                         RigidbodyConstraints.FreezePositionZ;
+                rigidbody.isKinematic = true;
             }
     }
 }
