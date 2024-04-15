@@ -6,6 +6,7 @@ TagManager:
   tags:
   - PuzzlePiece
   - ShadowObject
+  - PressurePlateActivator
   layers:
   - Default
   - TransparentFX
