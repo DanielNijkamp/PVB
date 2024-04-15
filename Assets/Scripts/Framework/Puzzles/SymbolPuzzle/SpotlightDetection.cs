@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpotlightDetection : MonoBehaviour
+public sealed class SpotlightDetection : MonoBehaviour
 {
     private Light light;
     [Header("configuration")]
@@ -12,15 +12,11 @@ public class SpotlightDetection : MonoBehaviour
     [SerializeField] private LayerMask layerMask;
     [SerializeField] private List<Transform> lastHitObjects = new List<Transform>();
     [SerializeField] private List<Transform> currentHitObjects = new List<Transform>();
-    [Header("Debug")]
-    [SerializeField] private bool debugGyzmos;
-
     private void Start()
     {
         light = GetComponent<Light>();
         coneAngle = light.range;
     }
-
     void Update()
     {
         Vector3 capsuleDirection = transform.forward;
@@ -36,8 +32,6 @@ public class SpotlightDetection : MonoBehaviour
             {
                 currentHitObjects.Add(hitTransform);
                 hitTransform.GetComponent<SpotlightDDetectionHandler>().OnDetected();
-                if(debugGyzmos)
-                Debug.DrawLine(transform.position, hit.point, Color.red);
             }
         }
         for (int i = 0; i < lastHitObjects.Count; i++)
@@ -55,24 +49,5 @@ public class SpotlightDetection : MonoBehaviour
                 lastHitObjects.Add(currentHitObjects[i]);
             }
         }
-        if(debugGyzmos)
-        DebugDrawCapsule(capsuleStart, capsuleEnd, capsuleRadius, Color.green);
-    }
-
-    void DebugDrawCapsule(Vector3 start, Vector3 end, float radius, Color color)
-    {
-        Vector3 up = (end - start).normalized * radius;
-        Vector3 forward = Vector3.Slerp(up, -up, 0.5f);
-        Vector3 right = Vector3.Cross(up, forward).normalized * radius;
-
-        Debug.DrawLine(start + right, end + right, color);
-        Debug.DrawLine(start - right, end - right, color);
-        Debug.DrawLine(start + forward, end + forward, color);
-        Debug.DrawLine(start - forward, end - forward, color);
-
-        Debug.DrawRay(start + right, (start + forward - start - right).normalized * radius, color);
-        Debug.DrawRay(start - right, (start - forward - start + right).normalized * radius, color);
-        Debug.DrawRay(end + right, (end + forward - end - right).normalized * radius, color);
-        Debug.DrawRay(end - right, (end - forward - end + right).normalized * radius, color);
     }
 }

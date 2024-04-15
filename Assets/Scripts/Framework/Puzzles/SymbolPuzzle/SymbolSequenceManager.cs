@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
-public class SymbolSequenceManager : MonoBehaviour , SequenceManager<EnumSymbols>
+public sealed class SymbolSequenceManager : MonoBehaviour , SequenceManager<EnumSymbols>
 {
     public EnumSymbols[] Sequence { get; set; } = new EnumSymbols[4];
     public EnumSymbols[] SubmittedSequence { get; set; } = new EnumSymbols[4];

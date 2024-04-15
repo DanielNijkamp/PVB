@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
-public class SpotlightDDetectionHandler : MonoBehaviour
+public sealed class SpotlightDDetectionHandler : MonoBehaviour
 {
     [SerializeField] private UnityEvent onDetected = new();
     [SerializeField] private UnityEvent onDetectionLost= new();

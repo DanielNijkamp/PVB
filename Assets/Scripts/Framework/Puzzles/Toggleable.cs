@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Toggleable : MonoBehaviour
+public sealed class Toggleable : MonoBehaviour
 {
     [SerializeField] private Toggleable[] targets;
     [SerializeField] private UnityEvent onToggle;

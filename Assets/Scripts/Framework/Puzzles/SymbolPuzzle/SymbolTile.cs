@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SymbolTile : SequenceItem<EnumSymbols>
+public sealed class SymbolTile : SequenceItem<EnumSymbols>
 {
     [SerializeField] private EnumSymbols itemValue;
     [HideInInspector] public bool IsActive;
