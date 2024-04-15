@@ -37,6 +37,8 @@ namespace Player.Interaction
             if (!target.TryGetComponent<Grabable>(out var grabable)) return;
 
             if (grabable.IsOwned) return;
+
+            if (inRange.Contains(grabable)) return;
             
             inRange.Add(grabable);
             
