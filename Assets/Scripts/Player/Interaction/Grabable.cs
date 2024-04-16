@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 namespace Player.Interaction
 {
-    [RequireComponent(typeof(Rigidbody))]
+    [RequireComponent(typeof(Rigidbody), typeof(Collider))]
     public sealed class Grabable : MonoBehaviour
     {
         [SerializeField] private UnityEvent onGrab = new();
@@ -14,8 +14,8 @@ namespace Player.Interaction
         [field: ShowNonSerializedField] public bool IsOwned { get; private set; }
     
         private bool updatePosition;
-        private new Rigidbody rigidbody;
-        private new Collider collider;
+        private Rigidbody rigidbody;
+        private Collider collider;
         
         private Transform grabTransform;
     

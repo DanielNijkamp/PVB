@@ -20,11 +20,8 @@ namespace Events
     
         private void OnTriggerEnter(Collider other)
         {
-            if (withTag)
-            {
-                if (!other.CompareTag(tag)) return;
-            }
-        
+            if (withTag && !other.CompareTag(tag)) return;
+            
             if (supplyInfo)
             {
                 onTriggerEnterWithInfo?.Invoke(other);
@@ -33,16 +30,12 @@ namespace Events
             {
                 onTriggerEnter?.Invoke();
             }
-        
         }
 
         private void OnTriggerExit(Collider other)
         {
-            if (withTag)
-            {
-                if (!other.CompareTag(tag)) return;
-            }        
-        
+            if (withTag && !other.CompareTag(tag)) return;      
+            
             if (supplyInfo)
             {
                 onTriggerExitWithInfo?.Invoke(other);
