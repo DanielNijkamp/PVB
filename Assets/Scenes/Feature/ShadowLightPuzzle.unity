@@ -165,10 +165,10 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
+  m_UseGravity: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!65 &9267112
 BoxCollider:
@@ -250,7 +250,7 @@ Transform:
   m_GameObject: {fileID: 9267110}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.52, y: 1.28, z: 13.04}
+  m_LocalPosition: {x: 12.52, y: 1.01, z: 13.04}
   m_LocalScale: {x: 1, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -508,14 +508,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d67e7445958b6714cbe98196cd9af466, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  puzzlePieces:
+  pillars:
   - {fileID: 1537031672}
   - {fileID: 570046466}
   - {fileID: 1441471717}
   - {fileID: 1312299213}
-  puzzlePiecesComplete: 0
-  allPilarsInPlace: 0
-  pilarCheck: {fileID: 1537031672}
+  onCompletion:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1463343886}
+        m_TargetAssemblyTypeName: EventDebugger, Assembly-CSharp
+        m_MethodName: Log
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: completed
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &400898842
 Transform:
   m_ObjectHideFlags: 0
@@ -563,9 +575,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f15949f957ec8f499372a2640e7f536, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pilarInPlace: 0
-  pilarPlace: {fileID: 570046465}
-  pilar: {fileID: 9267110}
+  lockPosition: {fileID: 570046470}
+  pillar: {fileID: 9267110}
+  onCompleted:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 400898841}
+        m_TargetAssemblyTypeName: PillarManager, Assembly-CSharp
+        m_MethodName: CheckCompletion
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!135 &570046467
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -930,10 +956,10 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
+  m_UseGravity: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!65 &791618297
 BoxCollider:
@@ -1015,7 +1041,7 @@ Transform:
   m_GameObject: {fileID: 791618295}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.136, y: 1.28, z: 11.52}
+  m_LocalPosition: {x: 10.136, y: 0.997, z: 11.52}
   m_LocalScale: {x: 1, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1394,15 +1420,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aecc3011e88072c4c88e77f9251583ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shapeMatcher: {fileID: 400898841}
-  puzzlePieces:
-  - {fileID: 400898841}
-  puzzlePiece: {fileID: 2103994875}
-  shadowPlace: {fileID: 326276568}
-  matchThreshold: 0.8
-  spotLight: {fileID: 1107527837}
-  capsuleRadius: 1
-  capsuleHeight: 5
 --- !u!1 &1312299212
 GameObject:
   m_ObjectHideFlags: 0
@@ -1435,9 +1452,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f15949f957ec8f499372a2640e7f536, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pilarInPlace: 0
-  pilarPlace: {fileID: 1312299212}
-  pilar: {fileID: 1892559338}
+  lockPosition: {fileID: 1312299217}
+  pillar: {fileID: 1892559338}
+  onCompleted:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 400898841}
+        m_TargetAssemblyTypeName: PillarManager, Assembly-CSharp
+        m_MethodName: CheckCompletion
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!135 &1312299214
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1689,9 +1720,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f15949f957ec8f499372a2640e7f536, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pilarInPlace: 0
-  pilarPlace: {fileID: 1441471716}
-  pilar: {fileID: 1775454806}
+  lockPosition: {fileID: 1441471721}
+  pillar: {fileID: 1775454806}
+  onCompleted:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 400898841}
+        m_TargetAssemblyTypeName: PillarManager, Assembly-CSharp
+        m_MethodName: CheckCompletion
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!135 &1441471718
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1774,6 +1819,50 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.4, y: -0.064, z: 13.05}
   m_LocalScale: {x: 2, y: 0.3, z: 2}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1463343885
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1463343887}
+  - component: {fileID: 1463343886}
+  m_Layer: 0
+  m_Name: Debugger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1463343886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1463343885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f0dab7c734542645aef82a0a70addee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1463343887
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1463343885}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 7.617285, y: 10.630299, z: 9.863297}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1896,9 +1985,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f15949f957ec8f499372a2640e7f536, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pilarInPlace: 0
-  pilarPlace: {fileID: 1537031667}
-  pilar: {fileID: 791618295}
+  lockPosition: {fileID: 1537031671}
+  pillar: {fileID: 791618295}
+  onCompleted:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 400898841}
+        m_TargetAssemblyTypeName: PillarManager, Assembly-CSharp
+        m_MethodName: CheckCompletion
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1618741795
 GameObject:
   m_ObjectHideFlags: 0
@@ -2181,10 +2284,10 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
+  m_UseGravity: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!65 &1775454808
 BoxCollider:
@@ -2266,7 +2369,7 @@ Transform:
   m_GameObject: {fileID: 1775454806}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.418, y: 569, z: 13.33}
+  m_LocalPosition: {x: 4.418, y: 0.94, z: 13.33}
   m_LocalScale: {x: 1, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2420,10 +2523,10 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
+  m_UseGravity: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!65 &1892559340
 BoxCollider:
@@ -2505,7 +2608,7 @@ Transform:
   m_GameObject: {fileID: 1892559338}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.09, y: 1.28, z: 15.88}
+  m_LocalPosition: {x: 10.09, y: 1.28, z: 15.88}
   m_LocalScale: {x: 1, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2788,3 +2891,4 @@ SceneRoots:
   - {fileID: 1441471721}
   - {fileID: 1312299217}
   - {fileID: 400898842}
+  - {fileID: 1463343887}

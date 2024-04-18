@@ -27,7 +27,7 @@ public sealed class Pillar: MonoBehaviour
             Rigidbody rigidbody = obj.GetComponent<Rigidbody>();
             if (rigidbody != null)
             {
-                rigidbody.isKinematic = true;
+                rigidbody.constraints = RigidbodyConstraints.FreezeAll;
             }
     }
 }
