@@ -1,6 +1,6 @@
 # PVB
 
-This repository contains the code and wiki that has documentation about the project. exam for team 05
+This repository contains the code and a wiki that contains documentation about the project. exam for team 05
 
 # Table of contents:
 * [`Project description`](#Project-Description)
@@ -13,18 +13,15 @@ This repository contains the code and wiki that has documentation about the proj
 
 This project is for our final examen and our client is [`Paladin Games`](https://paladinstudios.com/). The idea is to create a local co-op game where you need to work together to reach a common goal. 
 
-Our game idea is to have a physics-based puzzle game where you need to explore dungeons and work together to solve puzzles and find treasure. 
-
-<sup>_Project idea is subject to change in the first sprint_</sup>
+Our idea is to create a co-op puzzle game where you need to work together in split rooms and use light as the mechanic to solve puzzles. 
 
 
 ## CI
 
 |  Build status  |
 | -- |
-|  [![Build Status](https://github.com/DanielNijkamp/FlippinWorlds/actions/workflows/build.yml/badge.svg?branch=master)](https://github.com/DanielNijkamp/FlippinWorlds/actions)   |
+|  [![Build](https://github.com/DanielNijkamp/PVB/actions/workflows/build.yml/badge.svg)](https://github.com/DanielNijkamp/PVB/actions/workflows/build.yml)   |
 
-<sup>_(temporaly using different badge)_</sup>
 
 ## Team members:
 
@@ -58,12 +55,13 @@ Our game idea is to have a physics-based puzzle game where you need to explore d
 | [`Functional design`](https://github.com/DanielNijkamp/PVB/wiki/Functional-design) | Contains information on game design and the decision making of it|
 | [`Technical design`](https://github.com/DanielNijkamp/PVB/wiki/Technical-design) | Contains specifics on technical aspect of our game |
 | [`Code convention`](https://github.com/DanielNijkamp/PVB/wiki/Code-convention) | Code convention for C# and Unity |
-| [`Gitflow convention`](https://github.com/DanielNijkamp/PVB/wiki/Version-Control-Conventions) | Convention on the use of git and how to work with it |
+| [`Version Control Convention`](https://github.com/DanielNijkamp/PVB/wiki/Version-Control-Conventions) | Convention on the use of git and how to work with it |
 | [`Folder structure`](https://github.com/DanielNijkamp/PVB/wiki/Folder-structure) | Project folder structure |
-| [`SCRUM notes`](https://github.com/DanielNijkamp/PVB/wiki/SCRUM-notes) | Notes on daily stand -up/down, sprint review & retrospectives|
 | [`Usertest footage`](https://github.com/DanielNijkamp/PVB/wiki/Usertest-footage) | Contains usertest footage of our game |
-| [`Persona`](https://github.com/DanielNijkamp/PVB/wiki/Persona) | Art persona / target person |
 | [`Sketches`](https://github.com/DanielNijkamp/PVB/wiki/Sketches) | Art sketches |
 | [`Styleguide & Moodboard`](https://github.com/DanielNijkamp/PVB/wiki/Styleguide-&-Moodboard) | Art Styleguide & Moodboard |
 
 You can also browse our documentation via the [`wiki`](https://github.com/DanielNijkamp/PVB/wiki).
+
+
+<sup>_Readme is subject to change if any nessicary changes are required._</sup>
