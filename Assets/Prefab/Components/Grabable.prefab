@@ -12,10 +12,11 @@ GameObject:
   - component: {fileID: 4721835143578385788}
   - component: {fileID: 3006254634751610417}
   - component: {fileID: 7161275505570807084}
-  - component: {fileID: 3744390807366149008}
+  - component: {fileID: 7146645176912632930}
+  - component: {fileID: 7153922806139166770}
   m_Layer: 0
-  m_Name: Button
-  m_TagString: Untagged
+  m_Name: Grabable
+  m_TagString: Grabable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -106,7 +107,34 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3744390807366149008
+--- !u!54 &7146645176912632930
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7150067932252609269}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &7153922806139166770
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -115,11 +143,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 7150067932252609269}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a38ddcbd9d96e84cbdb784e5149de38, type: 3}
+  m_Script: {fileID: 11500000, guid: 142583c44a389f34cbe0d9d4dd852c4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  otherObjectsToToggle:
-  - {fileID: 0}
-  - {fileID: 7150067932252609269}
-  - {fileID: 0}
-  toggleState: 1
+  onGrab:
+    m_PersistentCalls:
+      m_Calls: []
+  onRelease:
+    m_PersistentCalls:
+      m_Calls: []
