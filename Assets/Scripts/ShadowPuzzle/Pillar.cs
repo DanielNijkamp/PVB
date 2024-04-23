@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.Events;
-using System;
 
 public sealed class Pillar: MonoBehaviour
 {
