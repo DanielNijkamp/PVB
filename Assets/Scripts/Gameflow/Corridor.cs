@@ -2,8 +2,6 @@ using Events;
 using UnityEngine;
 using UnityEngine.Events;
 
-//instead of loading scenes we can just do it with prefabs.
-
 [RequireComponent(typeof(Collider))]
 public sealed class Corridor : EventTrigger
 {
@@ -16,10 +14,10 @@ public sealed class Corridor : EventTrigger
 
     private void Awake()
     {
-        onTriggerEnter.AddListener(CheckPassage);
-        
         onTriggerEnter.AddListener(Add);
         onTriggerExit.AddListener(Remove);
+        
+        onTriggerEnter.AddListener(CheckPassage);
     }
 
     private void OnDestroy()
@@ -43,13 +41,9 @@ public sealed class Corridor : EventTrigger
         playerCount--;
     }
     
-    
-    //load new puzzle/scene : sceneloader script. WIP
-    //teleport player : teleporter script
-    //if all players are there disable movement for a while. : playerManager?
     private void CheckPassage()
     {
-        if (playerCount == playerManager.PlayerCount)
+        if (allowPassage && playerCount == playerManager.PlayerCount)
         {
             onPassage?.Invoke();
         }

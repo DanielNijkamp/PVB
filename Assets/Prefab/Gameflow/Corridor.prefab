@@ -53,6 +53,37 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 4, y: 4, z: 0.5}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &6840350482803129087
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4556122143548508846}
+  m_Layer: 0
+  m_Name: Teleport
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4556122143548508846
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6840350482803129087}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -1.25}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5824594018026462476}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &835188319799975346
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -65,6 +96,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Corridor
+      objectReference: {fileID: 0}
+    - target: {fileID: 5823113578377790659, guid: 6e36876aebab4a341ae3a1ce940db61f,
+        type: 3}
+      propertyPath: m_VersionIndex
+      value: 7943
       objectReference: {fileID: 0}
     - target: {fileID: 6575873639989543102, guid: 6e36876aebab4a341ae3a1ce940db61f,
         type: 3}
@@ -123,6 +159,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 2904217570402227451}
+    - targetCorrespondingSourceObject: {fileID: 6575873639989543102, guid: 6e36876aebab4a341ae3a1ce940db61f,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4556122143548508846}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1141418668932328612, guid: 6e36876aebab4a341ae3a1ce940db61f,
         type: 3}
@@ -132,6 +172,14 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 8982436326905857884}
+    - targetCorrespondingSourceObject: {fileID: 1141418668932328612, guid: 6e36876aebab4a341ae3a1ce940db61f,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2137060685748811226}
+    - targetCorrespondingSourceObject: {fileID: 1141418668932328612, guid: 6e36876aebab4a341ae3a1ce940db61f,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8599052173340662310}
   m_SourcePrefab: {fileID: 100100000, guid: 6e36876aebab4a341ae3a1ce940db61f, type: 3}
 --- !u!1 &306259486258917654 stripped
 GameObject:
@@ -158,8 +206,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.0159016, y: 3.2788439, z: 2.0047977}
-  m_Center: {x: -0.0058633685, y: 1.6295428, z: 0}
+  m_Size: {x: 2.0159016, y: 3.2723613, z: 0.521881}
+  m_Center: {x: -0.005863428, y: 1.6263015, z: 0.76081616}
 --- !u!114 &8982436326905857884
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,6 +251,39 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   playerManager: {fileID: 0}
+--- !u!114 &2137060685748811226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 306259486258917654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaf3f943d72055645a61abb0c4ede649, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interval: 1
+  onStart:
+    m_PersistentCalls:
+      m_Calls: []
+  onEnd:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &8599052173340662310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 306259486258917654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb72b9e9e91c080458aeb89087429c68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerManager: {fileID: 0}
+  target: {fileID: 4556122143548508846}
 --- !u!4 &5824594018026462476 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6575873639989543102, guid: 6e36876aebab4a341ae3a1ce940db61f,

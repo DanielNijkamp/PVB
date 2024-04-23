@@ -13,6 +13,7 @@ namespace Player
         [Header("Settings")]
         [SerializeField] private float speed;
         [SerializeField] private float rotationSpeed;
+        
         [ShowNonSerializedField] private bool isFrozen;
 
         private CharacterController character;
