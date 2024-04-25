@@ -35,8 +35,9 @@ namespace Player.Interaction
 
         private void AddCollider(Collider target)
         {   
-            if (!target.TryGetComponent<Grabable>(out var grabable)) return;
-            if (grabable == null && grabable.IsOwned || inRange.Contains(grabable)) return;
+            if (!target.TryGetComponent<Grabable>(out var grabable) 
+                && grabable == null 
+                && (grabable.IsOwned || inRange.Contains(grabable))) return;
 
             AddGrabable(grabable);
             
