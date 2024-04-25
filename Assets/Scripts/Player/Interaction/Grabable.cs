@@ -10,6 +10,7 @@ namespace Player.Interaction
     {
         [SerializeField] private UnityEvent onGrab = new();
         [SerializeField] private UnityEvent onRelease = new();
+        public Action onForceRelease;
         
         [field: ShowNonSerializedField] public bool IsOwned { get; private set; }
     
@@ -49,6 +50,12 @@ namespace Player.Interaction
             TogglePhysics();
             ToggleTracking();
             onRelease?.Invoke();
+        }
+        public void ForceRelease()
+        {
+            Release();
+            onForceRelease();
+            Destroy(this);
         }
     
         private void ToggleOwnership()
