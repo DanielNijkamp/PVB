@@ -21,37 +21,48 @@ namespace Player.Interaction
         {
             grabAction.performed += _ => GrabObject();
             
-            onTriggerEnterWithInfo.AddListener(AddObject);
-            onTriggerExitWithInfo.AddListener(RemoveObject);
+            onTriggerEnterWithInfo.AddListener(AddCollider);
+            onTriggerExitWithInfo.AddListener(RemoveCollider);
         }
 
         private void OnDestroy()
         {
             grabAction.performed -= _ => GrabObject();
             
-            onTriggerEnterWithInfo.RemoveListener(AddObject);
-            onTriggerExitWithInfo.RemoveListener(RemoveObject);
+            onTriggerEnterWithInfo.RemoveListener(AddCollider);
+            onTriggerExitWithInfo.RemoveListener(RemoveCollider);
         }
 
-        private void AddObject(Collider target)
+        private void AddCollider(Collider target)
         {   
-            if (!target.TryGetComponent<Grabable>(out var grabable)
-            || grabable.IsOwned
-            || inRange.Contains(grabable)) return;
+            if (!target.TryGetComponent<Grabable>(out var grabable)) return;
+            if (grabable == null) return;
+            if (grabable.IsOwned || inRange.Contains(grabable)) return;
 
-            
-            inRange.Add(grabable);
+            AddGrabable(grabable);
             
             Enable();
         }
 
-        private void RemoveObject(Collider target)
+        private void RemoveCollider(Collider target)
         {
             if (!target.TryGetComponent<Grabable>(out var grabable)) return;
             
-            inRange.Remove(grabable);
+            RemoveGrabable(grabable);
             
             Disable();
+        }
+
+        private void AddGrabable(Grabable grabable)
+        {
+            inRange.Add(grabable);
+            grabable.onForceRelease += () => RemoveGrabable(grabable);
+        }
+
+        private void RemoveGrabable(Grabable grabable)
+        {
+            inRange.Remove(grabable);
+            grabable.onForceRelease -= () => RemoveGrabable(grabable);
         }
         
         private void Enable() 
@@ -71,8 +82,11 @@ namespace Player.Interaction
             if (heldObject == null)
             {
                 var nearestObject = CalculateNearest();
-                nearestObject.Grab(grabPosition);
-                heldObject = nearestObject;
+                if (nearestObject != null)
+                {
+                    nearestObject.Grab(grabPosition);
+                    heldObject = nearestObject;
+                }
             }
             else
             {
