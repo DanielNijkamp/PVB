@@ -2933,6 +2933,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4611457507215023056, guid: 5039f3a6ad1ed9d448d7b22683a2fd7a,
+        type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5177963590074359784, guid: 5039f3a6ad1ed9d448d7b22683a2fd7a,
         type: 3}
       propertyPath: m_Enabled
