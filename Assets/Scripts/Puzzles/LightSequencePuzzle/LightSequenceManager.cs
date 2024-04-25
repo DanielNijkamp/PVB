@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -13,13 +13,17 @@ public sealed class LightSequenceManager : MonoBehaviour
         isFinished = true;
         foreach (var button in puzzleButtons)
         {
-            if (!button.GetActive())
+            if (button.GetActive() == false)
             {
                 isFinished = false;
                 break;
             }
         }
-        if (isFinished) 
-            onFinshed?.Invoke();
+
+        if (isFinished)
+        {
+              onFinshed?.Invoke();
+        }
+          
     }
 }
