@@ -302,7 +302,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a90b8049d67f774c9a4dd48bda3da9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 7795387012381529405}
+  animator: {fileID: 8859049345653861987}
   startState: Close
 --- !u!4 &5824594018026462476 stripped
 Transform:
@@ -310,9 +310,9 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 835188319799975346}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &7795387012381529405 stripped
+--- !u!95 &8859049345653861987 stripped
 Animator:
-  m_CorrespondingSourceObject: {fileID: 7474260648181516431, guid: 6e36876aebab4a341ae3a1ce940db61f,
+  m_CorrespondingSourceObject: {fileID: 8171364995207099345, guid: 6e36876aebab4a341ae3a1ce940db61f,
     type: 3}
   m_PrefabInstance: {fileID: 835188319799975346}
   m_PrefabAsset: {fileID: 0}

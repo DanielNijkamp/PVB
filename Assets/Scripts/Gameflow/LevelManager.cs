@@ -7,16 +7,14 @@ public sealed class LevelManager : MonoBehaviour
 {
     [SerializeField] private UnityEvent onCompletion = new();
     [SerializeField] private Level[] levels = {};
-    private bool[] used;
     private int currentIndex;
     
     private void Start()
     {
-        used = new bool[levels.Length];
         if (levels.Any())
         {
             levels[0].gameObject.SetActive(true);
-            used[0] = true;
+            levels[0].Used = true;
             currentIndex = 1;
             levels[0].gameObject.transform.position = Vector3.zero;
         }
@@ -24,7 +22,7 @@ public sealed class LevelManager : MonoBehaviour
 
     public void SpawnLevel()
     {
-        var nonUsedIndices = Enumerable.Range(0, levels.Length).Where(i => !used[i]).ToList();
+        var nonUsedIndices = Enumerable.Range(0, levels.Length).Where(i => !levels[i].Used).ToList();
 
         if (!nonUsedIndices.Any())
         {
@@ -33,7 +31,7 @@ public sealed class LevelManager : MonoBehaviour
         }
 
         var index = nonUsedIndices[Random.Range(0, nonUsedIndices.Count)];
-        used[index] = true;
+        levels[index].Used = true;
 
         Level newLevel = levels[index];
 
