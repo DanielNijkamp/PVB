@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainMenuHandler : MonoBehaviour
+public sealed class MainMenuHandler : MonoBehaviour
 {
     [SerializeField] private GameObject[] menus;
 
