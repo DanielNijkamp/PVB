@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class LightSequenceManager : MonoBehaviour
+public sealed class LightSequenceManager : MonoBehaviour
 {
     [SerializeField] private List<ObjectToggler> puzzleButtons = new();
     [SerializeField] private UnityEvent onFinshed = new();
