@@ -1,9 +1,6 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/Prefab/Components/Grabable.prefab.meta
-guid: 2da819a14256b7348961a5371afdef1d
-========
 guid: 8e10471943fcdb448815e27edb3e59bc
->>>>>>>> develop:Assets/Prefab/Components/Pillar(2).prefab.meta
+Assets/Prefab/Components/Pillar(2).prefab.meta
 PrefabImporter:
   externalObjects: {}
   userData: 
