@@ -7,9 +7,7 @@ public sealed class Toggleable : MonoBehaviour
     [SerializeField] private UnityEvent onToggle;
     
     public void Toggle()
-    {
-        onToggle?.Invoke();
-        
+    {   
         if (targets.Length == 0) return;
         
         foreach (var toggable in targets)

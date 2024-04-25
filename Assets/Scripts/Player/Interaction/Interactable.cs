@@ -35,8 +35,8 @@ namespace Player.Interaction
 
         private void Disable()
         {
-            var result = collisionCount--;
-            if (result == 0)
+            collisionCount--;
+            if (collisionCount == 0)
             {
                 interactAction.Disable();
             }
