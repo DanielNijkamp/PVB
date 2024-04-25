@@ -1,11 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
+using System;
 using UnityEngine;
 using UnityEngine.Events;
-using System;
 
-public sealed class Pillar: MonoBehaviour
+public sealed class Pillar : MonoBehaviour
 {
     public bool Completed { get; private set; }
 
@@ -13,8 +10,15 @@ public sealed class Pillar: MonoBehaviour
     [SerializeField] private GameObject pillar;
     [SerializeField] private UnityEvent onCompleted = new();
 
+    private Quaternion initialRotation;
+
+    private void Start()
+    {
+        initialRotation = pillar.transform.rotation;
+    }
+
     private void OnTriggerEnter(Collider other)
-    {   
+    {
         if (other.gameObject == pillar)
         {
             Completed = true;
@@ -22,12 +26,14 @@ public sealed class Pillar: MonoBehaviour
             onCompleted?.Invoke();
         }
     }
+
     private void Lock(GameObject obj)
     {
         Rigidbody rigidbody = obj.GetComponent<Rigidbody>();
         if (rigidbody != null)
         {
             rigidbody.constraints = RigidbodyConstraints.FreezeAll;
+            obj.transform.rotation = initialRotation;
         }
     }
 }
