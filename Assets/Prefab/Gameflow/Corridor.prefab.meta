@@ -1,0 +1,11 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Prefab/Gameflow/Corridor.prefab.meta
+guid: 5039f3a6ad1ed9d448d7b22683a2fd7a
+========
+guid: b9a0a4650c599b547a38c5f58ee3fbe9
+>>>>>>>> develop:Assets/Prefab/Components/Pillar.prefab.meta
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

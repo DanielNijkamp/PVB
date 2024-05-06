@@ -1,3 +1,4 @@
+using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -12,11 +13,11 @@ namespace Player
         [Header("Settings")]
         [SerializeField] private float speed;
         [SerializeField] private float rotationSpeed;
+        
+        [ShowNonSerializedField] private bool isFrozen;
 
         private CharacterController character;
-    
         private Vector2 moveInput;
-        private Vector2 rotateInput;
         
         private void Start()
         {
@@ -26,6 +27,8 @@ namespace Player
         
         private void FixedUpdate()
         {
+            if (isFrozen) return;
+            
             Vector3 moveDirection = directionMediator.TransformInput(moveInput);
             var move = new Vector3(moveDirection.x, 0, moveDirection.y) * (speed * Time.deltaTime);
             
@@ -43,9 +46,10 @@ namespace Player
         {
             moveInput = context.ReadValue<Vector2>();
         }
-        public void Rotate(InputAction.CallbackContext context)
+
+        public void ToggleFreeze()
         {
-            rotateInput = context.ReadValue<Vector2>();
+            isFrozen = !isFrozen;
         }
         
     }

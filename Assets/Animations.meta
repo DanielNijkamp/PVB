@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Animations.meta
+guid: 886f3d4d00fd4354db906e552d636512
+========
+guid: c3a61cd024c21e24eb47df7b29bfb29d
+>>>>>>>> develop:Assets/Prefab/Components.meta
+folderAsset: yes
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
