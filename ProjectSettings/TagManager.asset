@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Grabable
+  - PuzzlePiece
+  - ShadowObject
+  - PressurePlateActivator
   layers:
   - Default
   - TransparentFX
@@ -11,7 +15,7 @@ TagManager:
   - Player
   - Water
   - UI
-  - 
+  - Grabable
   - 
   - 
   - 
