@@ -33,7 +33,7 @@ Our idea is to create a co-op puzzle game where you need to work together in spl
 |--|
 |[**Daniel Nijkamp (Lead dev)**](https://danielnijkamp.xyz)|
 |[**Joao Jubitana**](https://2906159.wixsite.com/my-site)|
-|[**Jordan Ross**]()|
+|[**Jordan Ross**](https://www.jordanross.dev/)|
 
 </td><td>
 
