@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -22,11 +21,9 @@ public sealed class LightSequenceManager : MonoBehaviour
         {
             if (!button.GetActive())
             {
-                print("false");
                 return false;
             }
         }
-        print("true");
         return true;
     }
 }
