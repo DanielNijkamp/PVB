@@ -10,20 +10,23 @@ public sealed class LightSequenceManager : MonoBehaviour
     private bool isFinished;
     public void CheckOnFinished()
     {
-        isFinished = true;
+        if (CheckActiveButtons())
+        {
+            onFinshed?.Invoke();
+        }
+    }
+
+    private bool CheckActiveButtons()
+    {
         foreach (var button in puzzleButtons)
         {
-            if (button.GetActive() == false)
+            if (!button.GetActive())
             {
-                isFinished = false;
-                break;
+                print("false");
+                return false;
             }
         }
-
-        if (isFinished)
-        {
-              onFinshed?.Invoke();
-        }
-          
+        print("true");
+        return true;
     }
 }
