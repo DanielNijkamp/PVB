@@ -14,6 +14,6 @@ public sealed class Toggleable : MonoBehaviour
         {
             toggable.onToggle?.Invoke();
         }
-        lightSequenceManager.CheckOnFinished();
+        lightSequenceManager.OnFinished();
     }
 }
