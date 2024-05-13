@@ -8,6 +8,8 @@ TagManager:
   - PuzzlePiece
   - ShadowObject
   - PressurePlateActivator
+  - Level
+  - Interactable
   layers:
   - Default
   - TransparentFX
@@ -16,7 +18,7 @@ TagManager:
   - Water
   - UI
   - Grabable
-  - 
+  - Interactable
   - 
   - 
   - 

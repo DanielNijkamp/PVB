@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 3006254634751610417}
   - component: {fileID: 7161275505570807084}
   - component: {fileID: 138125281297115182}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Interactable
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -133,15 +133,6 @@ MonoBehaviour:
       m_Calls: []
   withTag: 0
   tag: 
-  onInteraction:
+  <onInteraction>k__BackingField:
     m_PersistentCalls:
       m_Calls: []
-  interactAction:
-    m_Name: Interact
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: efd4e1b9-446e-4d57-b95b-6117e6d574fa
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
