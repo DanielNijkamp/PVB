@@ -1,5 +1,10 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scenes/Art/LightingWithLevelDesign.unity.meta
 guid: 1b4103d6114685f4fb86de23191d7ad4
+========
+guid: 10d218ac8269cab47adae633c2128d54
+folderAsset: yes
+>>>>>>>> develop:Assets/Scenes/Puzzles/hotfixPuzzles.meta
 DefaultImporter:
   externalObjects: {}
   userData: 
