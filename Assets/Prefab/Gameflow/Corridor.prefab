@@ -649,7 +649,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a90b8049d67f774c9a4dd48bda3da9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startState: Open
+  startState: Close
   animator: {fileID: 639314997624666886}
 --- !u!4 &2014439117732814898 stripped
 Transform:
