@@ -21,3 +21,7 @@ MonoBehaviour:
     <Down>k__BackingField: 0
     <Left>k__BackingField: 1
     <Right>k__BackingField: 2
+  - <Up>k__BackingField: 1
+    <Down>k__BackingField: 0
+    <Left>k__BackingField: 3
+    <Right>k__BackingField: 2
