@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
-public class PuzzleCameras : MonoBehaviour
+public sealed class PuzzleCameras : MonoBehaviour
 {
     [SerializeField] private CinemachineVirtualCamera[] puzzleCameras = new CinemachineVirtualCamera[2];
     public void SwitchCamera()
