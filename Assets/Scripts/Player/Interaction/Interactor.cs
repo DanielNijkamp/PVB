@@ -1,32 +1,25 @@
 using System.Collections.Generic;
 using Events;
-using JetBrains.Annotations;
 using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
 
 namespace Player.Interaction
 {
-    public sealed class Grab : EventTrigger
+    public sealed class Interactor : EventTrigger
     {
         [SerializeField, BoxGroup("Input")] private InputActionAsset playerActions;
         [SerializeField, BoxGroup("Input")] private string actionName;
         [SerializeField, BoxGroup("Input")] private PlayerInput playerInput;
         
-        [SerializeField, BoxGroup("Positions")] private Transform grabPosition;
-        [SerializeField, BoxGroup("Positions")] private Transform dropPosition;
-        
-        private readonly List<Grabable> inRange = new();
-        private Grabable heldObject;
-        private InputAction grabAction;
-        
+        private readonly List<Interactable> inRange = new();
+        private InputAction interactAction;
         private void Awake()
         {
             InputActionAsset playerActions = playerInput.actions;
-            grabAction = playerActions.FindAction(actionName);
+            interactAction = playerActions.FindAction(actionName);
             
-            grabAction.performed += _ => GrabObject();
+            interactAction.performed += _ => Interact();
             
             onTriggerEnterWithInfo.AddListener(AddCollider);
             onTriggerExitWithInfo.AddListener(RemoveCollider);
@@ -34,76 +27,63 @@ namespace Player.Interaction
 
         private void OnDestroy()
         {
-            grabAction.performed -= _ => GrabObject();
+            interactAction.performed -= _ => Interact();
             
             onTriggerEnterWithInfo.RemoveListener(AddCollider);
             onTriggerExitWithInfo.RemoveListener(RemoveCollider);
+            
         }
-
         private void AddCollider(Collider target)
         {   
-            if (!target.TryGetComponent<Grabable>(out var grabable) || (grabable.IsOwned || inRange.Contains(grabable))) return;
+            if (!target.TryGetComponent<Interactable>(out var interactable) || (inRange.Contains(interactable))) return;
 
-            AddGrabable(grabable);
+            AddInteractable(interactable);
             
             Enable();
         }
 
         private void RemoveCollider(Collider target)
         {
-            if (!target.TryGetComponent<Grabable>(out var grabable)) return;
+            if (!target.TryGetComponent<Interactable>(out var interactable)) return;
             
-            RemoveGrabable(grabable);
+            RemoveInteractable(interactable);
             
             Disable();
         }
-
-        private void AddGrabable(Grabable grabable)
+        private void AddInteractable(Interactable interactable)
         {
-            inRange.Add(grabable);
-            grabable.onForceRelease += () => RemoveGrabable(grabable);
+            inRange.Add(interactable);
         }
 
-        private void RemoveGrabable(Grabable grabable)
+        private void RemoveInteractable(Interactable interactable)
         {
-            inRange.Remove(grabable);
-            grabable.onForceRelease -= () => RemoveGrabable(grabable);
+            inRange.Remove(interactable);
         }
         
         private void Enable() 
         {
-            grabAction.Enable();
+            interactAction.Enable();
         }
 
         private void Disable()
         {
             if (inRange.Count != 0) return;
             
-            grabAction.Disable();
+            interactAction.Disable();
         }
-
-        private void GrabObject()
+    
+        private void Interact()
         {
-            if (heldObject == null)
+            var nearestObject = CalculateNearest();
+            if (nearestObject != null)
             {
-                var nearestObject = CalculateNearest();
-                if (nearestObject != null)
-                {
-                    nearestObject.Grab(grabPosition);
-                    heldObject = nearestObject;
-                }
-            }
-            else
-            {
-                heldObject.Release();
-                heldObject.transform.position = dropPosition.position;
-                heldObject = null;
+                nearestObject.onInteraction?.Invoke();
             }
         }
         
-        private Grabable CalculateNearest()
+        private Interactable CalculateNearest()
         {
-            Grabable closestObject = null;
+            Interactable closestObject = null;
             float closestDistanceSqr = Mathf.Infinity;
             
             foreach (var obj in inRange)
@@ -120,3 +100,4 @@ namespace Player.Interaction
         }
     }
 }
+
