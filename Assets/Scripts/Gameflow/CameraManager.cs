@@ -9,7 +9,6 @@ namespace CameraSystem
     {
         [SerializeField] private List<PuzzleCameras> puzzles = new List<PuzzleCameras>();
         [SerializeField] private UnityEvent<int> OnCameraAngleChanged = new ();
-        [SerializeField] private int controlSet;
         private int playersEntered;
         private int currentPuzzle;
 
@@ -25,12 +24,12 @@ namespace CameraSystem
             playersEntered++;
         }
 
-        public void SwitchCamera()
+        public void SwitchCamera(int direction)
         {
             if(playersEntered >= 2)
             {
                 puzzles[currentPuzzle].SwitchCamera();
-                OnCameraAngleChanged?.Invoke(controlSet);
+                OnCameraAngleChanged?.Invoke(direction);
             }
         }
     }

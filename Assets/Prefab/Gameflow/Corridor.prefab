@@ -178,17 +178,17 @@ PrefabInstance:
     - target: {fileID: 6575873639989543102, guid: 6e36876aebab4a341ae3a1ce940db61f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.37694144
       objectReference: {fileID: 0}
     - target: {fileID: 6575873639989543102, guid: 6e36876aebab4a341ae3a1ce940db61f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 6575873639989543102, guid: 6e36876aebab4a341ae3a1ce940db61f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -12.02
       objectReference: {fileID: 0}
     - target: {fileID: 6575873639989543102, guid: 6e36876aebab4a341ae3a1ce940db61f,
         type: 3}
@@ -198,17 +198,17 @@ PrefabInstance:
     - target: {fileID: 6575873639989543102, guid: 6e36876aebab4a341ae3a1ce940db61f,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6575873639989543102, guid: 6e36876aebab4a341ae3a1ce940db61f,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6575873639989543102, guid: 6e36876aebab4a341ae3a1ce940db61f,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6575873639989543102, guid: 6e36876aebab4a341ae3a1ce940db61f,
         type: 3}
@@ -323,10 +323,10 @@ MonoBehaviour:
   onPassage:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: AnimationPlayer, Assembly-CSharp
-        m_MethodName: Play
-        m_Mode: 5
+      - m_Target: {fileID: 2137060685748811226}
+        m_TargetAssemblyTypeName: Transition, Assembly-CSharp
+        m_MethodName: StartTransition
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -430,7 +430,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerManager: {fileID: 0}
   target: {fileID: 4556122143548508846}
-  moveDuration: 0
+  moveDuration: 0.5
 --- !u!1 &5550846240093978277 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5088995444779295511, guid: 6e36876aebab4a341ae3a1ce940db61f,
