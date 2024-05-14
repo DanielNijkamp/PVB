@@ -392,7 +392,7 @@ Transform:
   m_GameObject: {fileID: 1323830490648087352}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.36, y: 1.53, z: 3.45}
+  m_LocalPosition: {x: -1.2600002, y: 1.53, z: 14.2699995}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -513,11 +513,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targets:
-  - {fileID: 4288923377126710660}
   - {fileID: 5960171771002420136}
   - {fileID: 5792504231127944248}
   - {fileID: 3188440949461660019}
   - {fileID: 3550705084819327315}
+  - {fileID: 4288923377126710660}
   onToggle:
     m_PersistentCalls:
       m_Calls:
@@ -533,18 +533,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 6433534562596578642}
-        m_TargetAssemblyTypeName: LightSequenceManager, Assembly-CSharp
-        m_MethodName: CheckOnFinished
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  lightSequenceManager: {fileID: 6433534562596578642}
 --- !u!114 &8822205353553497869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -589,7 +578,7 @@ Transform:
   m_GameObject: {fileID: 1648623158212370281}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 10.14, y: 1.4482343, z: 0.99}
+  m_LocalPosition: {x: 20.24, y: 1.4482343, z: 11.809999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -710,11 +699,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targets:
-  - {fileID: 3550705084819327315}
   - {fileID: 1776130003264568598}
   - {fileID: 3188440949461660019}
   - {fileID: 5792504231127944248}
   - {fileID: 4288923377126710660}
+  - {fileID: 3550705084819327315}
   onToggle:
     m_PersistentCalls:
       m_Calls:
@@ -730,18 +719,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 6433534562596578642}
-        m_TargetAssemblyTypeName: LightSequenceManager, Assembly-CSharp
-        m_MethodName: CheckOnFinished
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  lightSequenceManager: {fileID: 6433534562596578642}
 --- !u!114 &7777172872235378632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -786,7 +764,7 @@ Transform:
   m_GameObject: {fileID: 1910974543444541590}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.683704, y: 1.5246794, z: -1.61}
+  m_LocalPosition: {x: -1.583705, y: 1.5246794, z: 9.21}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -907,11 +885,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targets:
-  - {fileID: 6135909382143229246}
   - {fileID: 5792504231127944248}
   - {fileID: 4288923377126710660}
   - {fileID: 3550705084819327315}
   - {fileID: 3188440949461660019}
+  - {fileID: 6135909382143229246}
   onToggle:
     m_PersistentCalls:
       m_Calls:
@@ -927,18 +905,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 6433534562596578642}
-        m_TargetAssemblyTypeName: LightSequenceManager, Assembly-CSharp
-        m_MethodName: CheckOnFinished
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  lightSequenceManager: {fileID: 6433534562596578642}
 --- !u!114 &3115942847517266679
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1066,7 +1033,7 @@ Transform:
   m_GameObject: {fileID: 2760540316089669609}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 10.314362, y: 1.4399999, z: 3.76}
+  m_LocalPosition: {x: 20.41436, y: 1.4399999, z: 14.58}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1187,11 +1154,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targets:
-  - {fileID: 5082972242795211457}
   - {fileID: 3550705084819327315}
   - {fileID: 1776130003264568598}
   - {fileID: 5960171771002420136}
   - {fileID: 6135909382143229246}
+  - {fileID: 5082972242795211457}
   onToggle:
     m_PersistentCalls:
       m_Calls:
@@ -1207,18 +1174,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 6433534562596578642}
-        m_TargetAssemblyTypeName: LightSequenceManager, Assembly-CSharp
-        m_MethodName: CheckOnFinished
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  lightSequenceManager: {fileID: 6433534562596578642}
 --- !u!114 &6994966765023147442
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1678,7 +1634,7 @@ Transform:
   m_GameObject: {fileID: 5320492303299883060}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.599961, y: 1.4799998, z: -4.24}
+  m_LocalPosition: {x: -1.4999619, y: 1.4799998, z: 6.58}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1799,11 +1755,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targets:
-  - {fileID: 6135909382143229246}
   - {fileID: 4288923377126710660}
   - {fileID: 5960171771002420136}
   - {fileID: 5082972242795211457}
   - {fileID: 1776130003264568598}
+  - {fileID: 6135909382143229246}
   onToggle:
     m_PersistentCalls:
       m_Calls:
@@ -1819,18 +1775,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 6433534562596578642}
-        m_TargetAssemblyTypeName: LightSequenceManager, Assembly-CSharp
-        m_MethodName: CheckOnFinished
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  lightSequenceManager: {fileID: 6433534562596578642}
 --- !u!114 &7910101630522279425
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2041,7 +1986,7 @@ Transform:
   m_GameObject: {fileID: 6263735046565246555}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 10.09, y: 1.4930177, z: -4.23}
+  m_LocalPosition: {x: 20.19, y: 1.4930177, z: 6.59}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2162,11 +2107,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targets:
-  - {fileID: 3188440949461660019}
   - {fileID: 5082972242795211457}
   - {fileID: 3550705084819327315}
   - {fileID: 4288923377126710660}
   - {fileID: 5792504231127944248}
+  - {fileID: 3188440949461660019}
   onToggle:
     m_PersistentCalls:
       m_Calls:
@@ -2182,18 +2127,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 6433534562596578642}
-        m_TargetAssemblyTypeName: LightSequenceManager, Assembly-CSharp
-        m_MethodName: CheckOnFinished
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  lightSequenceManager: {fileID: 6433534562596578642}
 --- !u!114 &744161051047708341
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2321,7 +2255,7 @@ Transform:
   m_GameObject: {fileID: 6738083325799861883}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 10.264999, y: 1.37, z: -1.65}
+  m_LocalPosition: {x: 20.364998, y: 1.37, z: 9.17}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2442,11 +2376,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targets:
-  - {fileID: 1776130003264568598}
   - {fileID: 3188440949461660019}
   - {fileID: 5082972242795211457}
   - {fileID: 6135909382143229246}
   - {fileID: 5960171771002420136}
+  - {fileID: 1776130003264568598}
   onToggle:
     m_PersistentCalls:
       m_Calls:
@@ -2462,18 +2396,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 6433534562596578642}
-        m_TargetAssemblyTypeName: LightSequenceManager, Assembly-CSharp
-        m_MethodName: CheckOnFinished
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  lightSequenceManager: {fileID: 6433534562596578642}
 --- !u!114 &5698922669116584715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2640,7 +2563,7 @@ Transform:
   m_GameObject: {fileID: 7911080960581727497}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.7, y: 1.484679, z: 1.13}
+  m_LocalPosition: {x: -1.6000004, y: 1.484679, z: 11.95}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2761,11 +2684,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targets:
-  - {fileID: 5960171771002420136}
   - {fileID: 5792504231127944248}
   - {fileID: 6135909382143229246}
   - {fileID: 5082972242795211457}
   - {fileID: 1776130003264568598}
+  - {fileID: 5960171771002420136}
   onToggle:
     m_PersistentCalls:
       m_Calls:
@@ -2781,18 +2704,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 6433534562596578642}
-        m_TargetAssemblyTypeName: LightSequenceManager, Assembly-CSharp
-        m_MethodName: CheckOnFinished
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  lightSequenceManager: {fileID: 6433534562596578642}
 --- !u!114 &3256855376768786914
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3000,7 +2912,7 @@ PrefabInstance:
     - target: {fileID: 750275896131420598, guid: f8852065b14a6344f82c834f981a8609,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.2824599
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 750275896131420598, guid: f8852065b14a6344f82c834f981a8609,
         type: 3}
@@ -3010,7 +2922,7 @@ PrefabInstance:
     - target: {fileID: 750275896131420598, guid: f8852065b14a6344f82c834f981a8609,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.4242964
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 750275896131420598, guid: f8852065b14a6344f82c834f981a8609,
         type: 3}
@@ -3047,6 +2959,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1514409566392676583, guid: f8852065b14a6344f82c834f981a8609,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 16.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 1514409566392676583, guid: f8852065b14a6344f82c834f981a8609,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.83
+      objectReference: {fileID: 0}
     - target: {fileID: 3021129558794565434, guid: f8852065b14a6344f82c834f981a8609,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -3076,6 +2998,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LightSequence
+      objectReference: {fileID: 0}
+    - target: {fileID: 5152276127488854176, guid: f8852065b14a6344f82c834f981a8609,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5152276127488854176, guid: f8852065b14a6344f82c834f981a8609,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5439340772968819614, guid: f8852065b14a6344f82c834f981a8609,
         type: 3}
@@ -3378,6 +3310,18 @@ MonoBehaviour:
           m_StringArgument: Open
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 5695194993181971498}
+        m_TargetAssemblyTypeName: Corridor, Assembly-CSharp
+        m_MethodName: ToggleAllowance
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Open
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &8054013710494836321
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3419,7 +3363,7 @@ PrefabInstance:
     - target: {fileID: 5824594018026462476, guid: 5039f3a6ad1ed9d448d7b22683a2fd7a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.33
+      value: 9.91
       objectReference: {fileID: 0}
     - target: {fileID: 5824594018026462476, guid: 5039f3a6ad1ed9d448d7b22683a2fd7a,
         type: 3}
@@ -3429,7 +3373,7 @@ PrefabInstance:
     - target: {fileID: 5824594018026462476, guid: 5039f3a6ad1ed9d448d7b22683a2fd7a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -12.16
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5824594018026462476, guid: 5039f3a6ad1ed9d448d7b22683a2fd7a,
         type: 3}
@@ -3471,6 +3415,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5039f3a6ad1ed9d448d7b22683a2fd7a, type: 3}
+--- !u!114 &5695194993181971498 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8982436326905857884, guid: 5039f3a6ad1ed9d448d7b22683a2fd7a,
+    type: 3}
+  m_PrefabInstance: {fileID: 3720364256336024438}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c00d2c1d08998304e81ea9e53bf36b2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &7166492486254005882 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5824594018026462476, guid: 5039f3a6ad1ed9d448d7b22683a2fd7a,

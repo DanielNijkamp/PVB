@@ -43,7 +43,7 @@ public sealed class Corridor : EventTrigger
     
     private void CheckPassage()
     {
-        if (allowPassage && playerCount == playerManager.PlayerCount)
+        if (allowPassage && (playerCount == playerManager.PlayerCount))
         {
             onPassage?.Invoke();
         }

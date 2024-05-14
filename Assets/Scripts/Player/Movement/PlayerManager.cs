@@ -53,23 +53,16 @@ public sealed class PlayerManager : MonoBehaviour
         foreach (var device in registeredDevices)
         {
             var controlScheme = device is Gamepad ? "Gamepad" : "Keyboard&Mouse";
-            var playerInstance = PlayerInput.Instantiate(playerPrefab);
+        
+            var playerInstance = PlayerInput.Instantiate(playerPrefab, -1 ,controlScheme, -1,device);
+        
             StartCoroutine(SetPlayerPosition(playerInstance.gameObject));
-            playerInstance.TryGetComponent<Movement>(out var movement);
-            movements.Add(movement);
-            
-            foreach (var pairedDevice in playerInstance.user.pairedDevices)
-            {
-                if (pairedDevice != null)
-                {
-                    playerInstance.user.UnpairDevice(pairedDevice);
-                }
-            }
-            InputUser.PerformPairingWithDevice(device, playerInstance.user);
-            playerInstance.SwitchCurrentControlScheme(controlScheme, device);
+        
+            movements.Add(playerInstance.GetComponent<Movement>());
         
             createdPlayers.Add(playerInstance.gameObject);
         }
+
         players = new List<GameObject>(createdPlayers);
         playerMovements = new ReadOnlyCollection<Movement>(movements);
         
