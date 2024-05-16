@@ -129,7 +129,7 @@ GameObject:
   - component: {fileID: 8472847702649075557}
   - component: {fileID: 95438676134557964}
   - component: {fileID: 4416178370571434183}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pillar trigger 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -874,7 +874,7 @@ GameObject:
   - component: {fileID: 3815628702724213278}
   - component: {fileID: 1610466521899293060}
   - component: {fileID: 5340812836247517725}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pillar trigger 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1019,7 +1019,7 @@ GameObject:
   - component: {fileID: 2988395088758919327}
   - component: {fileID: 5403586143499200188}
   - component: {fileID: 4225750130284049721}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pillar trigger 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1418,7 +1418,7 @@ GameObject:
   - component: {fileID: 6377727688327513694}
   - component: {fileID: 2409651127140956437}
   - component: {fileID: 2376818449245755454}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pillar trigger 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
