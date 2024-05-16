@@ -1,11 +1,11 @@
-using System;
+﻿using System;
 using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.Events;
 
 namespace Player.Interaction
 {
-    [RequireComponent(typeof(Rigidbody), typeof(Collider))]
+    [RequireComponent(typeof(Collider))]
     public sealed class Grabable : MonoBehaviour
     {
         [SerializeField] private UnityEvent onGrab = new();
@@ -15,23 +15,21 @@ namespace Player.Interaction
         [field: ShowNonSerializedField] public bool IsOwned { get; private set; }
     
         private bool updatePosition;
-        private Rigidbody rigidbody;
         private Collider collider;
         
         private Transform grabTransform;
     
         private void Awake()
         {
-            rigidbody = GetComponent<Rigidbody>();
             collider = GetComponent<Collider>();
         }
         
         private void FixedUpdate()
         {
             if (!updatePosition) return;
-            
-            rigidbody.MovePosition(grabTransform.position);
-            rigidbody.MoveRotation(grabTransform.rotation);
+
+            this.transform.position = grabTransform.position;
+            this.transform.rotation = grabTransform.rotation;
         }
         
         public void Grab(Transform grabTransform)
