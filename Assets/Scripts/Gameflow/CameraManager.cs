@@ -13,6 +13,7 @@ namespace CameraSystem
         [SerializeField] private UnityEvent<int> OnCameraAngleChanged = new ();
         private int playersEntered;
         private int currentPuzzle = 0;
+        private bool isCompleted;
 
         public void NextPuzzle()
         {
@@ -29,16 +30,22 @@ namespace CameraSystem
 
         public void SwitchCamera(int direction)
         {
-            if(playersEntered >= 2)
+            if(playersEntered >= 2 && !isCompleted)
             {
                 StartCoroutine(SwichCameras(direction));
+                ToggleIsCompleted();
             }
         }
         private IEnumerator SwichCameras(int direction)
         {
             puzzles[currentPuzzle].SwitchCamera();
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(1f);
             OnCameraAngleChanged?.Invoke(direction);
+        }
+        
+        public void ToggleIsCompleted()
+        {
+            isCompleted = !isCompleted;
         }
     }
 }

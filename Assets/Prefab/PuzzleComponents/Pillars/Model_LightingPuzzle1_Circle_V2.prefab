@@ -885,9 +885,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8085114436002552652}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Circle_4
-  m_TagString: Untagged
+  m_TagString: Grabable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1292,9 +1292,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8896429581954291343}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Circle_3
-  m_TagString: Untagged
+  m_TagString: Grabable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1582,9 +1582,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4359840235831954412}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Circle_2
-  m_TagString: Untagged
+  m_TagString: Grabable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1985,9 +1985,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7799639996643406383}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Circle_1
-  m_TagString: Untagged
+  m_TagString: Grabable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
