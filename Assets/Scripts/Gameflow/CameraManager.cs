@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using System.Collections;
+
 namespace CameraSystem
 {
 
@@ -10,10 +12,11 @@ namespace CameraSystem
         [SerializeField] private List<PuzzleCameras> puzzles = new List<PuzzleCameras>();
         [SerializeField] private UnityEvent<int> OnCameraAngleChanged = new ();
         private int playersEntered;
-        private int currentPuzzle;
+        private int currentPuzzle = 0;
 
         public void NextPuzzle()
         {
+            playersEntered = 0;
             puzzles[currentPuzzle].DeactivatePuzzleCamera();
             currentPuzzle++;
             puzzles[currentPuzzle].ActivatePuzzleCamera();
@@ -28,9 +31,14 @@ namespace CameraSystem
         {
             if(playersEntered >= 2)
             {
-                puzzles[currentPuzzle].SwitchCamera();
-                OnCameraAngleChanged?.Invoke(direction);
+                StartCoroutine(SwichCameras(direction));
             }
+        }
+        private IEnumerator SwichCameras(int direction)
+        {
+            puzzles[currentPuzzle].SwitchCamera();
+            yield return new WaitForSeconds(1.5f);
+            OnCameraAngleChanged?.Invoke(direction);
         }
     }
 }

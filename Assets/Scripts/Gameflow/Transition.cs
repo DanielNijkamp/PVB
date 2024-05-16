@@ -24,6 +24,7 @@ public sealed class Transition : MonoBehaviour
         while (stepCount <= steps.Length)
         {
             yield return DoStep();
+            stepCount++;
         }
         isTransitioning = false;
     }
@@ -32,7 +33,6 @@ public sealed class Transition : MonoBehaviour
     {
         steps[stepCount]?.Invoke();
         yield return new WaitForSeconds(interval);
-        stepCount++;
     }
     
 }
