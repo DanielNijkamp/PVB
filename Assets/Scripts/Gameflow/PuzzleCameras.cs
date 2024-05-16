@@ -7,16 +7,11 @@ public sealed class PuzzleCameras : MonoBehaviour
     [SerializeField] private CinemachineVirtualCamera[] puzzleCameras = new CinemachineVirtualCamera[2];
     public void SwitchCamera()
     {
-        if (puzzleCameras[0].Priority > puzzleCameras[1].Priority)
-        {
-            puzzleCameras[0].Priority = 9;
-            puzzleCameras[1].Priority = 11;
-        }
-        else
-        {
-            puzzleCameras[1].Priority = 9;
-            puzzleCameras[0].Priority = 11;
-        }
+        int highPriorityIndex = (puzzleCameras[0].Priority > puzzleCameras[1].Priority) ? 0 : 1;
+        int lowPriorityIndex = 1 - highPriorityIndex;
+
+        puzzleCameras[highPriorityIndex].Priority = 11;
+        puzzleCameras[lowPriorityIndex].Priority = 9;
     }
 
     public void ActivatePuzzleCamera()
