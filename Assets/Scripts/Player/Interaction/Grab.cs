@@ -3,6 +3,7 @@ using Events;
 using JetBrains.Annotations;
 using NaughtyAttributes;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
 
@@ -10,6 +11,9 @@ namespace Player.Interaction
 {
     public sealed class Grab : EventTrigger
     {
+        [SerializeField] private UnityEvent onGrab = new();
+        [SerializeField] private UnityEvent onRelease = new();
+        
         [SerializeField, BoxGroup("Input")] private InputActionAsset playerActions;
         [SerializeField, BoxGroup("Input")] private string actionName;
         [SerializeField, BoxGroup("Input")] private PlayerInput playerInput;
@@ -91,6 +95,7 @@ namespace Player.Interaction
                 {
                     nearestObject.Grab(grabPosition);
                     heldObject = nearestObject;
+                    onGrab?.Invoke();
                 }
             }
             else
@@ -98,6 +103,7 @@ namespace Player.Interaction
                 heldObject.Release();
                 heldObject.transform.position = dropPosition.position;
                 heldObject = null;
+                onRelease?.Invoke();
             }
         }
         
