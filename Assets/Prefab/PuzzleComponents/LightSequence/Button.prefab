@@ -62,7 +62,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: ac9db5d7dca45b349822a9df49cfa3e4, type: 2}
+      objectReference: {fileID: 2100000, guid: 54fda44b77e144548bcd822248dcc0cf, type: 2}
     - target: {fileID: 919132149155446097, guid: 9df2cb775835ef34ca8c527972698cbd,
         type: 3}
       propertyPath: m_Name
@@ -217,6 +217,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  lightSequenceManager: {fileID: 0}
 --- !u!114 &-2436135718489374258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,5 +231,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonMaterial: {fileID: 489694586166559453}
-  active: {fileID: 2100000, guid: f9735fec1fbc21e40ac9c85705b058e9, type: 2}
-  unactive: {fileID: 2100000, guid: ac9db5d7dca45b349822a9df49cfa3e4, type: 2}
+  active: {fileID: 2100000, guid: 7d49a14c6a0aa524bbc3b29fcf287f06, type: 2}
+  unactive: {fileID: 2100000, guid: 54fda44b77e144548bcd822248dcc0cf, type: 2}
