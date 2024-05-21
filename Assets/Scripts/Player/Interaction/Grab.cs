@@ -20,10 +20,14 @@ namespace Player.Interaction
         
         [SerializeField, BoxGroup("Positions")] private Transform grabPosition;
         [SerializeField, BoxGroup("Positions")] private Transform dropPosition;
+
+        [SerializeField, BoxGroup("Animations")] private Animator animator;
+        [SerializeField,AnimatorParam("animator"), BoxGroup("Animations")] private string animParam;
         
         private readonly List<Grabable> inRange = new();
         private Grabable heldObject;
         private InputAction grabAction;
+        private bool isGrabbing;
         
         private void Awake()
         {
@@ -61,7 +65,7 @@ namespace Player.Interaction
             
             Disable();
         }
-
+        
         private void AddGrabable(Grabable grabable)
         {
             inRange.Add(grabable);
@@ -95,6 +99,7 @@ namespace Player.Interaction
                 {
                     nearestObject.Grab(grabPosition);
                     heldObject = nearestObject;
+                    isGrabbing = true;
                     onGrab?.Invoke();
                 }
             }
@@ -103,8 +108,10 @@ namespace Player.Interaction
                 heldObject.Release();
                 heldObject.transform.position = dropPosition.position;
                 heldObject = null;
+                isGrabbing = false;
                 onRelease?.Invoke();
             }
+            animator.SetBool(animParam, isGrabbing);
         }
         
         private Grabable CalculateNearest()
