@@ -126,9 +126,9 @@ GameObject:
   - component: {fileID: 3459877669372580754}
   - component: {fileID: 3284107988094635748}
   - component: {fileID: 380337982350171972}
-  - component: {fileID: 6692261810766907078}
   - component: {fileID: 3561090086081833127}
   - component: {fileID: 28599268951505717}
+  - component: {fileID: 6369455474359796403}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -256,6 +256,14 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: fe062c1a-fe6e-45ff-a5a3-72ee39bf5963
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 8c95e88f-df06-4e3d-aed7-e0e39828556f
+    m_ActionName: Player/Grab[/Keyboard/f,/DualShock4GamepadHID/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: fdbd6c27-46ff-467e-bf07-77ab7b6b1742
+    m_ActionName: Player/Interact[/Keyboard/e,/DualShock4GamepadHID/buttonWest]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -301,18 +309,6 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6692261810766907078
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6235065132647322811}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de1ccc01b10d961478cf931c0ea02156, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &3561090086081833127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -328,34 +324,10 @@ MonoBehaviour:
   supplyInfo: 1
   onTriggerEnterWithInfo:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: EventDebugger, Assembly-CSharp
-        m_MethodName: Log
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Grabbable is in range of player
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   onTriggerExitWithInfo:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: EventDebugger, Assembly-CSharp
-        m_MethodName: Log
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Grabbable is out of range of player
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   onTriggerEnter:
     m_PersistentCalls:
       m_Calls: []
@@ -364,31 +336,10 @@ MonoBehaviour:
       m_Calls: []
   withTag: 1
   tag: Grabable
-  grabAction:
-    m_Name: Grab
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 88fb41a4-706a-452b-b2bb-c124c161d763
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: 8dd972b4-c679-41a9-934b-e4b673996469
-      m_Path: <Gamepad>/buttonSouth
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Grab
-      m_Flags: 0
-    - m_Name: 
-      m_Id: d2b30e80-f404-4ed8-a9d8-ea687f4ac4c4
-      m_Path: <Keyboard>/f
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Grab
-      m_Flags: 0
-    m_Flags: 0
+  playerActions: {fileID: -944628639613478452, guid: 8297caf450c748341bc9a26a4bfceb96,
+    type: 3}
+  actionName: Grab
+  playerInput: {fileID: 3459877669372580754}
   grabPosition: {fileID: 7829948516691602422}
   dropPosition: {fileID: 6945348439226170737}
 --- !u!135 &28599268951505717
@@ -404,7 +355,7 @@ SphereCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 63
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
@@ -412,6 +363,37 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 2
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6369455474359796403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6235065132647322811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d4b7a764444c0b4d96c383e1621dd1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  supplyInfo: 1
+  onTriggerEnterWithInfo:
+    m_PersistentCalls:
+      m_Calls: []
+  onTriggerExitWithInfo:
+    m_PersistentCalls:
+      m_Calls: []
+  onTriggerEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  onTriggerExit:
+    m_PersistentCalls:
+      m_Calls: []
+  withTag: 1
+  tag: Interactable
+  playerActions: {fileID: -944628639613478452, guid: 8297caf450c748341bc9a26a4bfceb96,
+    type: 3}
+  actionName: Interact
+  playerInput: {fileID: 3459877669372580754}
 --- !u!1 &8030904242996139882
 GameObject:
   m_ObjectHideFlags: 0

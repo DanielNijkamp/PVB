@@ -4,21 +4,28 @@ using JetBrains.Annotations;
 using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 namespace Player.Interaction
 {
     public sealed class Grab : EventTrigger
     {
-        [SerializeField] private InputAction grabAction;
+        [SerializeField, BoxGroup("Input")] private InputActionAsset playerActions;
+        [SerializeField, BoxGroup("Input")] private string actionName;
+        [SerializeField, BoxGroup("Input")] private PlayerInput playerInput;
         
         [SerializeField, BoxGroup("Positions")] private Transform grabPosition;
         [SerializeField, BoxGroup("Positions")] private Transform dropPosition;
         
         private readonly List<Grabable> inRange = new();
         private Grabable heldObject;
+        private InputAction grabAction;
         
         private void Awake()
         {
+            InputActionAsset playerActions = playerInput.actions;
+            grabAction = playerActions.FindAction(actionName);
+            
             grabAction.performed += _ => GrabObject();
             
             onTriggerEnterWithInfo.AddListener(AddCollider);

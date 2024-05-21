@@ -5,20 +5,34 @@ using UnityEngine.Events;
 public sealed class Transition : MonoBehaviour
 {
     [SerializeField] private float interval;
-    
-    [SerializeField] private UnityEvent onStart = new();
-    [SerializeField] private UnityEvent onEnd = new();
-    
-    public void DoTransition()
-    {
-        StartCoroutine(TransitionCoroutine());
-    }
 
-    private IEnumerator TransitionCoroutine()
+    [SerializeField] private UnityEvent[] steps = {};
+
+    private int stepCount;
+    private bool isTransitioning;
+    
+  public void StartTransition()
+  {
+      if (isTransitioning) return;
+      
+      StartCoroutine(DoSteps());
+  }
+
+    private IEnumerator DoSteps()
     {
-        onStart?.Invoke();
+        isTransitioning = true;
+        while (stepCount <= steps.Length)
+        {
+            yield return DoStep();
+            stepCount++;
+        }
+        isTransitioning = false;
+    }
+  
+    private IEnumerator DoStep()
+    {
+        steps[stepCount]?.Invoke();
         yield return new WaitForSeconds(interval);
-        onEnd?.Invoke();
     }
     
 }
