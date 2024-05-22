@@ -404,7 +404,7 @@ Transform:
   - {fileID: 1439111786}
   - {fileID: 1064304645}
   - {fileID: 1315965704}
-  - {fileID: 505266657}
+  - {fileID: 2056905898}
   - {fileID: 1828880248}
   m_Father: {fileID: 1024223336}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -552,89 +552,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e8b78ac948f05a46a6d8339a503172b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &505266656
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 505266657}
-  - component: {fileID: 505266659}
-  m_Layer: 0
-  m_Name: PlayerManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &505266657
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 505266656}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2056905898}
-  m_Father: {fileID: 345990708}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &505266659
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 505266656}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4bee2c4af568554ba45953898df12e6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  players: []
-  inputManager: {fileID: 1315965706}
-  playerPrefab: {fileID: 6235065132647322811, guid: 8c81bd53616d8074d94ce9c5b9aa4652,
-    type: 3}
-  spawnTransform: {fileID: 2056905898}
-  joinAction:
-    m_Name: Join
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 2159c566-910f-4f27-94c7-f8de82faf1d6
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: 86dd1f0c-f5c8-423f-aab9-776ef1398a5b
-      m_Path: <Keyboard>/enter
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Join
-      m_Flags: 0
-    - m_Name: 
-      m_Id: 73a2b95f-022f-4c6f-8b54-c34ef4a7d39d
-      m_Path: <DualShockGamepad>/systemButton
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Join
-      m_Flags: 0
-    - m_Name: 
-      m_Id: 1e209f74-db1a-4825-ba75-12b095f6816e
-      m_Path: <Gamepad>/buttonSouth
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Join
-      m_Flags: 0
-    m_Flags: 0
 --- !u!1 &602169407
 GameObject:
   m_ObjectHideFlags: 0
@@ -700,7 +617,7 @@ MonoBehaviour:
     <Event>k__BackingField:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 505266659}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: PlayerManager, Assembly-CSharp
           m_MethodName: SpawnPlayers
           m_Mode: 1
@@ -1522,7 +1439,7 @@ MonoBehaviour:
           m_StringArgument: Player Joined
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 505266659}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PlayerManager, Assembly-CSharp
         m_MethodName: RegisterPlayer
         m_Mode: 1
@@ -2157,7 +2074,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2056905898}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: SpawnPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2172,12 +2089,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2056905897}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.11, y: -5.71, z: 7.05}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.11, y: -5.71, z: 7.59}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 505266657}
+  m_Father: {fileID: 345990708}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2074253180
 GameObject:
@@ -2631,7 +2548,7 @@ PrefabInstance:
         type: 3}
       propertyPath: playerManager
       value: 
-      objectReference: {fileID: 505266659}
+      objectReference: {fileID: 0}
     - target: {fileID: 1486836119089619559, guid: 1c86c111b669dba4aaa4625537835644,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2691,7 +2608,7 @@ PrefabInstance:
         type: 3}
       propertyPath: playerManager
       value: 
-      objectReference: {fileID: 505266659}
+      objectReference: {fileID: 0}
     - target: {fileID: 1738424791256422229, guid: 1c86c111b669dba4aaa4625537835644,
         type: 3}
       propertyPath: onPassage.m_PersistentCalls.m_Calls.Array.size
@@ -3326,7 +3243,7 @@ PrefabInstance:
         type: 3}
       propertyPath: playerManager
       value: 
-      objectReference: {fileID: 505266659}
+      objectReference: {fileID: 0}
     - target: {fileID: 2938680942149035339, guid: a7081c0936d4ff7499c8079938e44470,
         type: 3}
       propertyPath: lightSequenceManager
@@ -3376,7 +3293,7 @@ PrefabInstance:
         type: 3}
       propertyPath: steps.Array.data[0].m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 505266659}
+      objectReference: {fileID: 0}
     - target: {fileID: 4192946604053532826, guid: a7081c0936d4ff7499c8079938e44470,
         type: 3}
       propertyPath: steps.Array.data[0].m_PersistentCalls.m_Calls.Array.data[2].m_Target
@@ -3401,7 +3318,7 @@ PrefabInstance:
         type: 3}
       propertyPath: steps.Array.data[2].m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 505266659}
+      objectReference: {fileID: 0}
     - target: {fileID: 4192946604053532826, guid: a7081c0936d4ff7499c8079938e44470,
         type: 3}
       propertyPath: steps.Array.data[2].m_PersistentCalls.m_Calls.Array.data[3].m_Target
@@ -3681,7 +3598,7 @@ PrefabInstance:
         type: 3}
       propertyPath: playerManager
       value: 
-      objectReference: {fileID: 505266659}
+      objectReference: {fileID: 0}
     - target: {fileID: 8876135244096229761, guid: a7081c0936d4ff7499c8079938e44470,
         type: 3}
       propertyPath: <onInteraction>k__BackingField.m_PersistentCalls.m_Calls.Array.size

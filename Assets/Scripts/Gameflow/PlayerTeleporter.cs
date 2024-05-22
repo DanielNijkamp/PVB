@@ -3,11 +3,14 @@ using UnityEngine;
 
 public sealed class PlayerTeleporter : MonoBehaviour
 {
-    [SerializeField] private PlayerManager playerManager;
+    private PlayerManager playerManager;
     [SerializeField] private Transform target;
 
     [SerializeField] private float moveDuration;
-    
+    private void Start()
+    {
+        playerManager = FindAnyObjectByType<PlayerManager>();   
+    }
     public void Teleport()
     {
         foreach (var player in playerManager.players)

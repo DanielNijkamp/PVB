@@ -6,22 +6,42 @@ using Player;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Users;
+using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 
 public sealed class PlayerManager : MonoBehaviour
 {
     public int PlayerCount { get; private set; }
 
     public List<GameObject> players;
-
-    [SerializeField] private PlayerInputManager inputManager;
+    private PlayerInputManager inputManager;
     [SerializeField] private GameObject playerPrefab;
-    [SerializeField] private Transform spawnTransform;
+    private Transform spawnTransform;
     [SerializeField] private InputAction joinAction;
     [ShowNonSerializedField] private int inputCount;
-    
+    private UIhandler uIhandler;
+
     private readonly List<InputDevice> registeredDevices = new();
     private ReadOnlyCollection<Movement> playerMovements;
-    
+    [SerializeField] private UnityEvent<int, InputDevice> OnPlayerConnected = new();
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    } 
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        TryFindComponents();
+    }
+    private void TryFindComponents()
+    {
+        inputManager = FindAnyObjectByType<PlayerInputManager>();
+        spawnTransform = GameObject.FindWithTag("Spawn").transform;
+        uIhandler = FindAnyObjectByType<UIhandler>();
+    }
     private void Awake()
     {
         inputManager.playerPrefab = playerPrefab;
@@ -43,6 +63,7 @@ public sealed class PlayerManager : MonoBehaviour
         
         registeredDevices.Add(device);
         inputCount++;
+        OnPlayerConnected?.Invoke(inputCount, device);
     }
 
     public void SpawnPlayers()
