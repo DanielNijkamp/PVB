@@ -14,7 +14,7 @@ public sealed class Pillar : MonoBehaviour
 
     private void Start()
     {
-        initialRotation = pillar.transform.rotation;
+        initialRotation = lockPosition.transform.rotation;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -30,5 +30,6 @@ public sealed class Pillar : MonoBehaviour
     private void Lock(GameObject obj)
     {
         obj.transform.rotation = initialRotation;
+        obj.transform.position = lockPosition.transform.position;
     }
 }
