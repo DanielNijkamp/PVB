@@ -247,7 +247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d901f9e99a9a94c42802590eb2290053, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
+  animator: {fileID: 3772504527284863438}
   animParam: isMoving
   speed: 5
   rotationSpeed: 15
@@ -293,7 +293,7 @@ MonoBehaviour:
   onGrab:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 3772504527284863438}
         m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
         m_MethodName: Play
         m_Mode: 5
@@ -338,7 +338,7 @@ MonoBehaviour:
   playerInput: {fileID: 3459877669372580754}
   grabPosition: {fileID: 7829948516691602422}
   dropPosition: {fileID: 6945348439226170737}
-  animator: {fileID: 0}
+  animator: {fileID: 3772504527284863438}
   animParam: isGrabbing
 --- !u!114 &6369455474359796403
 MonoBehaviour:
@@ -521,7 +521,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: e9480c4c2b0128344b1dbbb46b497f58,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e9480c4c2b0128344b1dbbb46b497f58,
         type: 3}
@@ -531,7 +531,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: e9480c4c2b0128344b1dbbb46b497f58,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e9480c4c2b0128344b1dbbb46b497f58,
         type: 3}
@@ -546,7 +546,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: e9480c4c2b0128344b1dbbb46b497f58,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e9480c4c2b0128344b1dbbb46b497f58,
         type: 3}
