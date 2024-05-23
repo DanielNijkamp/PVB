@@ -37,6 +37,5 @@ public sealed class Timer : MonoBehaviour
     public void TimerReset()
     {
         timeToComplete = 300f;
-        timerText.color = Color.white;
     }
 }
