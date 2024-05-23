@@ -1,15 +1,12 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using System.Runtime.CompilerServices;
 using UnityEngine.Events;
 
-public class Timer : MonoBehaviour
+public sealed class Timer : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI timerText;
     [SerializeField] float timeToComplete = 300f;
-    private float initialTime;
     [SerializeField] private UnityEvent sceneSwitcher = new UnityEvent();
     void Update()
     {
