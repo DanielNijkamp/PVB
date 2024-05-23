@@ -1,17 +1,15 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Linq;
 
 public sealed class MainMenuHandler : MonoBehaviour
 {
     [SerializeField] private GameObject[] menus;
+    [SerializeField] private GameObject playButton;
 
     public void Startgame()
     {
         SceneLoader.LoadNextScene();
-    }
-    public void Play()
-    {
-        SceneLoader.AdditiveLoadNextScene();
     }
 
     public void RestGame()
@@ -19,12 +17,18 @@ public sealed class MainMenuHandler : MonoBehaviour
         SceneLoader.LoadOnIndex(0);
     }
 
-    public void ToggleSettings()
+    public void ToggleMenu(int index)
     {
         foreach (var item in menus)
         {
-            item.SetActive(!item.activeSelf);
+            item.SetActive(false);
         }
+        menus[index].SetActive(true);
+    }
+
+    public void RevealPlayButton()
+    {
+        playButton.SetActive(true);
     }
     public void Quit()
     {
