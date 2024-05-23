@@ -251,6 +251,10 @@ MonoBehaviour:
   animParam: isMoving
   speed: 5
   rotationSpeed: 15
+  gravity: -9.81
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 4096
 --- !u!114 &6692261810766907078
 MonoBehaviour:
   m_ObjectHideFlags: 0

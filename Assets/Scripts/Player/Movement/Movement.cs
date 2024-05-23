@@ -1,6 +1,7 @@
 using System;
 using NaughtyAttributes;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 namespace Player
@@ -16,18 +17,39 @@ namespace Player
         [Header("Settings")]
         [SerializeField] private float speed;
         [SerializeField] private float rotationSpeed;
-        
+        [SerializeField] private float gravity = -9.81f;
+        [SerializeField] private LayerMask groundMask;
+
         [ShowNonSerializedField] private bool isFrozen;
+        [ShowNonSerializedField] private bool isGrounded;
 
         private CharacterController character;
         private Vector2 moveInput;
+        private Vector3 velocity;
 
         private void Start()
         {
             character = GetComponent<CharacterController>();
             directionMediator = FindObjectOfType<DirectionMediator>();
         }
-        
+
+        private void Update()
+        {
+            isGrounded = Physics.CheckSphere(transform.position, 0.1f, groundMask);
+
+            if (isGrounded && velocity.y < 0)
+            {
+                velocity.y = -2f;
+            }
+
+            if (!isGrounded)
+            {
+                velocity.y += gravity * Time.deltaTime;
+            }
+
+            character.Move(velocity * Time.deltaTime);
+        }
+
         private void FixedUpdate()
         {
             if (isFrozen) return;
