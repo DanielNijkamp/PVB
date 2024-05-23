@@ -1,3 +1,4 @@
+using System;
 using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -8,6 +9,8 @@ namespace Player
     public sealed class Movement : MonoBehaviour
     {
         [Header("Dependencies")] 
+        [SerializeField] private Animator animator;
+        [SerializeField,AnimatorParam("animator")] private string animParam;
         private DirectionMediator directionMediator;
         
         [Header("Settings")]
@@ -18,7 +21,7 @@ namespace Player
 
         private CharacterController character;
         private Vector2 moveInput;
-        
+
         private void Start()
         {
             character = GetComponent<CharacterController>();
@@ -33,13 +36,15 @@ namespace Player
             var move = new Vector3(moveDirection.x, 0, moveDirection.y) * (speed * Time.deltaTime);
             
             character.Move(move);
-        
-            if (move != Vector3.zero)
-            {
-                Quaternion targetRotation = Quaternion.LookRotation(move);
-                Quaternion smoothedRotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
-                transform.rotation = smoothedRotation;
-            }
+            
+            var isMoving = move != Vector3.zero;
+            animator.SetBool(animParam, isMoving);
+
+            if (!isMoving) return;
+            
+            Quaternion targetRotation = Quaternion.LookRotation(move);
+            Quaternion smoothedRotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+            transform.rotation = smoothedRotation;
         }
     
         public void Move(InputAction.CallbackContext context)

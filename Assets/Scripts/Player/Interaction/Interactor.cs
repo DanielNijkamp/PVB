@@ -2,12 +2,15 @@ using System.Collections.Generic;
 using Events;
 using NaughtyAttributes;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 namespace Player.Interaction
 {
     public sealed class Interactor : EventTrigger
     {
+        [SerializeField] private UnityEvent onInteract = new();
+        
         [SerializeField, BoxGroup("Input")] private InputActionAsset playerActions;
         [SerializeField, BoxGroup("Input")] private string actionName;
         [SerializeField, BoxGroup("Input")] private PlayerInput playerInput;
@@ -78,6 +81,7 @@ namespace Player.Interaction
             if (nearestObject != null)
             {
                 nearestObject.onInteraction?.Invoke();
+                onInteract?.Invoke();
             }
         }
         
