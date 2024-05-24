@@ -1928,7 +1928,7 @@ Transform:
   m_GameObject: {fileID: 2074253180}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -101.31812, y: 18.63758, z: -101.75036}
+  m_LocalPosition: {x: -1.3181264, y: 17.657581, z: -1.7503622}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2702,11 +2702,16 @@ PrefabInstance:
     - target: {fileID: 4524761470255566420, guid: 1c86c111b669dba4aaa4625537835644,
         type: 3}
       propertyPath: onCompletion.m_PersistentCalls.m_Calls.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4524761470255566420, guid: 1c86c111b669dba4aaa4625537835644,
         type: 3}
       propertyPath: onCompletion.m_PersistentCalls.m_Calls.Array.data[3].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4524761470255566420, guid: 1c86c111b669dba4aaa4625537835644,
+        type: 3}
+      propertyPath: onCompletion.m_PersistentCalls.m_Calls.Array.data[4].m_Mode
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4524761470255566420, guid: 1c86c111b669dba4aaa4625537835644,
@@ -2721,7 +2726,17 @@ PrefabInstance:
       objectReference: {fileID: 2074253186}
     - target: {fileID: 4524761470255566420, guid: 1c86c111b669dba4aaa4625537835644,
         type: 3}
+      propertyPath: onCompletion.m_PersistentCalls.m_Calls.Array.data[4].m_Target
+      value: 
+      objectReference: {fileID: 2074253186}
+    - target: {fileID: 4524761470255566420, guid: 1c86c111b669dba4aaa4625537835644,
+        type: 3}
       propertyPath: onCompletion.m_PersistentCalls.m_Calls.Array.data[3].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4524761470255566420, guid: 1c86c111b669dba4aaa4625537835644,
+        type: 3}
+      propertyPath: onCompletion.m_PersistentCalls.m_Calls.Array.data[4].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4524761470255566420, guid: 1c86c111b669dba4aaa4625537835644,
@@ -2732,6 +2747,11 @@ PrefabInstance:
     - target: {fileID: 4524761470255566420, guid: 1c86c111b669dba4aaa4625537835644,
         type: 3}
       propertyPath: onCompletion.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
+      value: ToggleIsCompleted
+      objectReference: {fileID: 0}
+    - target: {fileID: 4524761470255566420, guid: 1c86c111b669dba4aaa4625537835644,
+        type: 3}
+      propertyPath: onCompletion.m_PersistentCalls.m_Calls.Array.data[4].m_MethodName
       value: SwitchCamera
       objectReference: {fileID: 0}
     - target: {fileID: 4524761470255566420, guid: 1c86c111b669dba4aaa4625537835644,
@@ -2746,12 +2766,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4524761470255566420, guid: 1c86c111b669dba4aaa4625537835644,
         type: 3}
+      propertyPath: onCompletion.m_PersistentCalls.m_Calls.Array.data[4].m_TargetAssemblyTypeName
+      value: CameraSystem.CameraManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4524761470255566420, guid: 1c86c111b669dba4aaa4625537835644,
+        type: 3}
       propertyPath: onCompletion.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 4524761470255566420, guid: 1c86c111b669dba4aaa4625537835644,
         type: 3}
       propertyPath: onCompletion.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4524761470255566420, guid: 1c86c111b669dba4aaa4625537835644,
+        type: 3}
+      propertyPath: onCompletion.m_PersistentCalls.m_Calls.Array.data[4].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 4659728231224422872, guid: 1c86c111b669dba4aaa4625537835644,
