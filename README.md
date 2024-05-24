@@ -58,11 +58,11 @@ Our idea is to create a co-op puzzle game where you need to work together in spl
 | [`Version Control Convention`](https://github.com/DanielNijkamp/PVB/wiki/Version-Control-Conventions) | Convention on the use of git and how to work with it |
 | [`Folder structure`](https://github.com/DanielNijkamp/PVB/wiki/Folder-structure) | Project folder structure |
 | [`Usertest`](https://github.com/DanielNijkamp/PVB/wiki/Usertesting) | Contains usertest footage of our game |'
-| [`Daily Scrum`](https://github.com/DanielNijkamp/PVB/blob/master/examFiles/Documents/Daily_scrum.pdf) | Daily stand up and down|
-| [`Feedback Sprint review`](https://github.com/DanielNijkamp/PVB/blob/master/examFiles/Documents/Feedback%20Sprint%20Review.pdf) | Feedback of each sprint |
-| [`Sprint refinement`](https://github.com/DanielNijkamp/PVB/blob/master/examFiles/Documents/Sprint_refinement.pdf) | Refinment document checking what is left in the trello |
-| [`Sprint retrospective`](https://github.com/DanielNijkamp/PVB/blob/master/examFiles/Documents/Sprint_Retrospective.pdf) | Retrospective document on each sprint retro
-| [`Sprint Planning`](https://github.com/DanielNijkamp/PVB/blob/master/examFiles/Documents/Sprints_planning.pdf) | Document on each sprint planning |
+| [`Daily Scrum`](https://github.com/DanielNijkamp/PVB/blob/master/Documents/Daily_scrum.pdf) | Daily stand up and down|
+| [`Feedback Sprint review`](https://github.com/DanielNijkamp/PVB/blob/master/Documents/Feedback%20Sprint%20Review.pdf) | Feedback of each sprint |
+| [`Sprint refinement`](https://github.com/DanielNijkamp/PVB/blob/master/Documents/Sprint_refinement.pdf) | Refinment document checking what is left in the trello |
+| [`Sprint retrospective`](https://github.com/DanielNijkamp/PVB/blob/master/Documents/Sprint_Retrospective.pdf) | Retrospective document on each sprint retro
+| [`Sprint Planning`](https://github.com/DanielNijkamp/PVB/blob/master/Documents/Sprints_planning.pdf) | Document on each sprint planning |
 
 
 You can also browse our documentation via the [`wiki`](https://github.com/DanielNijkamp/PVB/wiki).
