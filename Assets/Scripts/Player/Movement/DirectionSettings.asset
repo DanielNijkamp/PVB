@@ -18,6 +18,10 @@ MonoBehaviour:
     <Left>k__BackingField: 2
     <Right>k__BackingField: 3
   - <Up>k__BackingField: 3
+    <Down>k__BackingField: 2
+    <Left>k__BackingField: 0
+    <Right>k__BackingField: 1
+  - <Up>k__BackingField: 1
     <Down>k__BackingField: 0
-    <Left>k__BackingField: 1
+    <Left>k__BackingField: 3
     <Right>k__BackingField: 2

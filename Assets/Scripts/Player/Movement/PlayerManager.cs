@@ -1,48 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using NaughtyAttributes;
+
 using Player;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.Users;
 
 public sealed class PlayerManager : MonoBehaviour
 {
     public int PlayerCount { get; private set; }
 
-    public List<GameObject> players;
-
-    [SerializeField] private PlayerInputManager inputManager;
+    [HideInInspector] public List<GameObject> players;
+    private PlayerInputManager inputManager;
     [SerializeField] private GameObject playerPrefab;
     [SerializeField] private Transform spawnTransform;
-    [SerializeField] private InputAction joinAction;
-    [ShowNonSerializedField] private int inputCount;
-    
-    private readonly List<InputDevice> registeredDevices = new();
+
     private ReadOnlyCollection<Movement> playerMovements;
-    
+    private PlayerRegister playerRegister;
+   
     private void Awake()
     {
+        inputManager = FindAnyObjectByType<PlayerInputManager>();
         inputManager.playerPrefab = playerPrefab;
-        
-        joinAction.Enable();
-        joinAction.performed += RegisterPlayer;
+        playerRegister = FindAnyObjectByType<PlayerRegister>();
     }
-
-    private void OnDestroy()
+    private void Start()
     {
-        joinAction.performed -= RegisterPlayer;
-        joinAction.Disable();
-    }
-    
-    private void RegisterPlayer(InputAction.CallbackContext context)
-    {
-        var device = context.control.device;
-        if (registeredDevices.Contains(device) || registeredDevices.Count >= inputManager.maxPlayerCount) return;
-        
-        registeredDevices.Add(device);
-        inputCount++;
+        SpawnPlayers();
     }
 
     public void SpawnPlayers()
@@ -50,26 +34,19 @@ public sealed class PlayerManager : MonoBehaviour
         List<GameObject> createdPlayers = new();
         List<Movement> movements = new();
         
-        foreach (var device in registeredDevices)
+        foreach (var device in playerRegister.registeredDevices)
         {
             var controlScheme = device is Gamepad ? "Gamepad" : "Keyboard&Mouse";
-            var playerInstance = PlayerInput.Instantiate(playerPrefab);
+        
+            var playerInstance = PlayerInput.Instantiate(playerPrefab, -1 ,controlScheme, -1,device);
+        
             StartCoroutine(SetPlayerPosition(playerInstance.gameObject));
-            playerInstance.TryGetComponent<Movement>(out var movement);
-            movements.Add(movement);
-            
-            foreach (var pairedDevice in playerInstance.user.pairedDevices)
-            {
-                if (pairedDevice != null)
-                {
-                    playerInstance.user.UnpairDevice(pairedDevice);
-                }
-            }
-            InputUser.PerformPairingWithDevice(device, playerInstance.user);
-            playerInstance.SwitchCurrentControlScheme(controlScheme, device);
+        
+            movements.Add(playerInstance.GetComponent<Movement>());
         
             createdPlayers.Add(playerInstance.gameObject);
         }
+
         players = new List<GameObject>(createdPlayers);
         playerMovements = new ReadOnlyCollection<Movement>(movements);
         

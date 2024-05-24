@@ -1,24 +1,40 @@
 using System.Collections;
+using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.Events;
 
 public sealed class Transition : MonoBehaviour
 {
     [SerializeField] private float interval;
+
+    [SerializeField] private UnityEvent[] steps = {};
+
+    [ShowNonSerializedField] private bool isTransitioning;
+    [ShowNonSerializedField] private int stepCount;
     
-    [SerializeField] private UnityEvent onStart = new();
-    [SerializeField] private UnityEvent onEnd = new();
-    
-    public void DoTransition()
+    public void StartTransition()
     {
-        StartCoroutine(TransitionCoroutine());
+        if (isTransitioning) return;
+      
+        StartCoroutine(DoSteps());
     }
 
-    private IEnumerator TransitionCoroutine()
+    private IEnumerator DoSteps()
     {
-        onStart?.Invoke();
+        isTransitioning = true;
+        while (stepCount < steps.Length)
+        {
+            yield return DoStep();
+            stepCount++;
+        }
+        stepCount = 0;
+        isTransitioning = false;
+    }
+    
+    private IEnumerator DoStep()
+    {
+        steps[stepCount]?.Invoke();
         yield return new WaitForSeconds(interval);
-        onEnd?.Invoke();
     }
     
 }

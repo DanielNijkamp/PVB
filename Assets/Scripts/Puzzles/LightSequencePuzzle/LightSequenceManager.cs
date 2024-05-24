@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -7,23 +6,23 @@ public sealed class LightSequenceManager : MonoBehaviour
 {
     [SerializeField] private List<ObjectToggler> puzzleButtons = new();
     [SerializeField] private UnityEvent onFinshed = new();
-    private bool isFinished;
-    public void CheckOnFinished()
+    public void OnFinished()
     {
-        isFinished = true;
+        if (CheckActiveButtons())
+        {
+            onFinshed?.Invoke();
+        }
+    }
+
+    private bool CheckActiveButtons()
+    {
         foreach (var button in puzzleButtons)
         {
-            if (button.GetActive() == false)
+            if (!button.GetActive())
             {
-                isFinished = false;
-                break;
+                return false;
             }
         }
-
-        if (isFinished)
-        {
-              onFinshed?.Invoke();
-        }
-          
+        return true;
     }
 }

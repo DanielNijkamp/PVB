@@ -3,22 +3,37 @@ using Events;
 using JetBrains.Annotations;
 using NaughtyAttributes;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 namespace Player.Interaction
 {
     public sealed class Grab : EventTrigger
     {
-        [SerializeField] private InputAction grabAction;
+        [SerializeField] private UnityEvent onGrab = new();
+        [SerializeField] private UnityEvent onRelease = new();
+        
+        [SerializeField, BoxGroup("Input")] private InputActionAsset playerActions;
+        [SerializeField, BoxGroup("Input")] private string actionName;
+        [SerializeField, BoxGroup("Input")] private PlayerInput playerInput;
         
         [SerializeField, BoxGroup("Positions")] private Transform grabPosition;
         [SerializeField, BoxGroup("Positions")] private Transform dropPosition;
+
+        [SerializeField, BoxGroup("Animations")] private Animator animator;
+        [SerializeField,AnimatorParam("animator"), BoxGroup("Animations")] private string animParam;
         
         private readonly List<Grabable> inRange = new();
         private Grabable heldObject;
+        private InputAction grabAction;
+        private bool isGrabbing;
         
         private void Awake()
         {
+            InputActionAsset playerActions = playerInput.actions;
+            grabAction = playerActions.FindAction(actionName);
+            
             grabAction.performed += _ => GrabObject();
             
             onTriggerEnterWithInfo.AddListener(AddCollider);
@@ -50,7 +65,7 @@ namespace Player.Interaction
             
             Disable();
         }
-
+        
         private void AddGrabable(Grabable grabable)
         {
             inRange.Add(grabable);
@@ -84,6 +99,8 @@ namespace Player.Interaction
                 {
                     nearestObject.Grab(grabPosition);
                     heldObject = nearestObject;
+                    isGrabbing = true;
+                    onGrab?.Invoke();
                 }
             }
             else
@@ -91,7 +108,10 @@ namespace Player.Interaction
                 heldObject.Release();
                 heldObject.transform.position = dropPosition.position;
                 heldObject = null;
+                isGrabbing = false;
+                onRelease?.Invoke();
             }
+            animator.SetBool(animParam, isGrabbing);
         }
         
         private Grabable CalculateNearest()
