@@ -6,7 +6,6 @@ public sealed class LightSequenceManager : MonoBehaviour
 {
     [SerializeField] private List<ObjectToggler> puzzleButtons = new();
     [SerializeField] private UnityEvent onFinshed = new();
-    private bool isFinished;
     public void OnFinished()
     {
         if (CheckActiveButtons())

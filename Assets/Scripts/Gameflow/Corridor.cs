@@ -6,8 +6,7 @@ using UnityEngine.Events;
 public sealed class Corridor : EventTrigger
 {
     [SerializeField] private UnityEvent onPassage = new();
-    
-    [SerializeField] private PlayerManager playerManager;
+    private PlayerManager playerManager;
     
     private bool allowPassage;
     private int playerCount;
@@ -19,7 +18,10 @@ public sealed class Corridor : EventTrigger
         
         onTriggerEnter.AddListener(CheckPassage);
     }
-
+    private void Start()
+    {
+        playerManager = FindAnyObjectByType<PlayerManager>();    
+    }
     private void OnDestroy()
     {
         onTriggerEnter.RemoveAllListeners();
