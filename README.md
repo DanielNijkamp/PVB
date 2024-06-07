@@ -57,9 +57,13 @@ Our idea is to create a co-op puzzle game where you need to work together in spl
 | [`Code convention`](https://github.com/DanielNijkamp/PVB/wiki/Code-convention) | Code convention for C# and Unity |
 | [`Version Control Convention`](https://github.com/DanielNijkamp/PVB/wiki/Version-Control-Conventions) | Convention on the use of git and how to work with it |
 | [`Folder structure`](https://github.com/DanielNijkamp/PVB/wiki/Folder-structure) | Project folder structure |
-| [`Usertest footage`](https://github.com/DanielNijkamp/PVB/wiki/Usertest-footage) | Contains usertest footage of our game |
-| [`Sketches`](https://github.com/DanielNijkamp/PVB/wiki/Sketches) | Art sketches |
-| [`Styleguide & Moodboard`](https://github.com/DanielNijkamp/PVB/wiki/Styleguide-&-Moodboard) | Art Styleguide & Moodboard |
+| [`Usertest`](https://github.com/DanielNijkamp/PVB/wiki/Usertesting) | Contains usertest footage of our game |'
+| [`Daily Scrum`](https://github.com/DanielNijkamp/PVB/blob/master/Documents/Daily_scrum.pdf) | Daily stand up and down|
+| [`Feedback Sprint review`](https://github.com/DanielNijkamp/PVB/blob/master/Documents/Feedback%20Sprint%20Review.pdf) | Feedback of each sprint |
+| [`Sprint refinement`](https://github.com/DanielNijkamp/PVB/blob/master/Documents/Sprint_refinement.pdf) | Refinment document checking what is left in the trello |
+| [`Sprint retrospective`](https://github.com/DanielNijkamp/PVB/blob/master/Documents/Sprint_Retrospective.pdf) | Retrospective document on each sprint retro
+| [`Sprint Planning`](https://github.com/DanielNijkamp/PVB/blob/master/Documents/Sprints_planning.pdf) | Document on each sprint planning |
+
 
 You can also browse our documentation via the [`wiki`](https://github.com/DanielNijkamp/PVB/wiki).
 
