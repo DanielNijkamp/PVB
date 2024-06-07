@@ -64,6 +64,15 @@ Our idea is to create a co-op puzzle game where you need to work together in spl
 | [`Sprint retrospective`](https://github.com/DanielNijkamp/PVB/blob/master/Documents/Sprint_Retrospective.pdf) | Retrospective document on each sprint retro
 | [`Sprint Planning`](https://github.com/DanielNijkamp/PVB/blob/master/Documents/Sprints_planning.pdf) | Document on each sprint planning |
 
+## Herkansing documenten
+
+| Type   | Description   |
+|-------------|-------------|
+| [Sprint 3 Retrospective + reflectie](https://github.com/DanielNijkamp/PVB/blob/master/Documents/Herkansing/Sprint%203%20Retrospective.pdf) | Reflectie op sprint 3 en het hele product vanaf sprint 3|
+| [Usertest plan van aanpak](https://github.com/DanielNijkamp/PVB/blob/master/Documents/Herkansing/Usertest%20plan%20van%20aanpak.pdf) | Een plan van aanpak voor de usertesting | 
+| [Usertest feedback](https://github.com/DanielNijkamp/PVB/blob/master/Documents/Herkansing/Usertest%20feedback.pdf) | Feedback en conclusies van de usertesting |
+| [Sprint 4 planning](https://github.com/DanielNijkamp/PVB/blob/master/Documents/Herkansing/Sprint%20planning.pdf) | Sprint 4 planning onderbouwen door de feedback van usertesting |
+| [Sprint 4 Trello board](https://trello.com/b/8wimVFlW/pvb-herkansing-sprint-4) | Sprint 4 trello board met alle userstories van sprint 4 planning |
 
 You can also browse our documentation via the [`wiki`](https://github.com/DanielNijkamp/PVB/wiki).
 
